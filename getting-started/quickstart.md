@@ -16,7 +16,7 @@ Want to learn about writing content from scratch? Head to the [Basics](../basics
 
 GitBook supports importing content from many popular writing tools and formats. If your content already exists, you can upload a file or group of files to be imported.
 
-<div data-full-width="false"><figure><img src="../images/import.png" alt=""><figcaption></figcaption></figure></div>
+<div data-full-width="false"><figure><img src="images/import.png" alt=""><figcaption></figcaption></figure></div>
 
 ### Sync a repository
 
