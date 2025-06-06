@@ -8,8 +8,6 @@ Once you’ve finished writing, editing, or importing your content, you can publ
 
 You can publish your site and find related settings from your docs site's homepage.&#x20;
 
-<figure><img src="../images/images-and-media.png" alt=""><figcaption></figcaption></figure>
-
-
+<figure><img src="../.gitbook/assets/new-image.png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../images/publish-your-docs.png" alt=""><figcaption></figcaption></figure>
