@@ -8,5 +8,5 @@ Once you’ve finished writing, editing, or importing your content, you can publ
 
 You can publish your site and find related settings from your docs site's homepage.
 
-<figure><img src="images/publish-your-docs.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../images/publish-your-docs.png" alt=""><figcaption></figcaption></figure>
 
