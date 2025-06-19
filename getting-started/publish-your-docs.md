@@ -10,4 +10,4 @@ You can publish your site and find related settings from your docs site's homepa
 
 <figure><img src="getting-started/images/editor.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="getting-started/images/import.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="images/import.png" alt=""><figcaption></figcaption></figure>
