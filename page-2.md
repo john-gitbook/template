@@ -1,5 +1,5 @@
 ---
-emoji: '👍'
+emoji: 'thumbs-up'
 ---
 
 # Page 2
