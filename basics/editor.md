@@ -1,8 +1,4 @@
----
-icon: pen-to-square
----
-
-# Editor
+# 🚄 Editor
 
 GitBook has a powerful block-based editor that allows you to seamlessly create, update, and enhance your content.
 

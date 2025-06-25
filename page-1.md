@@ -1,6 +1,5 @@
-# Page 1
+# 😏 Page 1
 
 Content!!!
 
-
-{% include "../.gitbook/includes/hello-world.md" %}
+{% include ".gitbook/includes/hello-world.md" %}
