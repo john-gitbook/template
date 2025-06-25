@@ -1,7 +1,7 @@
-# 😏 Page 1
+# 🍫 Page 1
 
 Content!!!
 
 {% include ".gitbook/includes/hello-world.md" %}
-hello
-hi
+
+hello hi
