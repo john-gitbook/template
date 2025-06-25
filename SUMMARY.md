@@ -1,6 +1,6 @@
 # Table of contents
 
-* [👍 Welcome](README.md)
+* [Welcome](README.md)
 
 ## Getting Started
 
@@ -11,3 +11,7 @@
 
 * [Editor](basics/editor.md)
 * [Images & media](basics/images-and-media.md)
+
+***
+
+* [👍 Page 1](page-1.md)
