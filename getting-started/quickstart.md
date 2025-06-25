@@ -1,8 +1,4 @@
----
-icon: bullseye-arrow
----
-
-# Quickstart
+# 👍 Quickstart
 
 <figure><img src="images/getting-started.png" alt=""><figcaption></figcaption></figure>
 
