@@ -1,4 +1,4 @@
-# Quickstart
+# 😄 Quickstart
 
 <figure><img src="getting-started/images/getting-started.png" alt=""><figcaption></figcaption></figure>
 
