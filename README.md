@@ -1,8 +1,10 @@
-# 😄 Quickstart
+# Quickstart
 
 <figure><img src="getting-started/images/getting-started.png" alt=""><figcaption></figcaption></figure>
 
 Beautiful documentation starts with the content you create — and GitBook makes it easy to get started with any pre-existing content.
+
+[This is a link](page-4.md) to page 4
 
 {% hint style="info" %}
 Want to learn about writing content from scratch? Head to the [Basics](basics/editor.md) section to learn more.
