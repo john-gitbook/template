@@ -1,0 +1,4 @@
+root: ./
+
+redirects:
+  five: page-4.md
