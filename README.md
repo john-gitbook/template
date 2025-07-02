@@ -6,6 +6,8 @@ Beautiful documentation starts with the content you create — and GitBook makes
 
 [This is a link](https://inst.gitbook.io/test/NwElCfnSTGqaE8NOHX5I/four) to page 4
 
+[This is a link](page-4.md) to page 4
+
 
 
 {% hint style="info" %}
