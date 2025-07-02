@@ -23,3 +23,5 @@ GitBook also allows you to set up a bi-directional sync with an existing reposit
 ### Sync a repository <a href="#this_anchor" id="this_anchor"></a>
 
 GitBook also allows you to set up a bi-directional sync with an existing repository on GitHub or GitLab. Setting up Git Sync allows you and your team to write content in GitBook or in code, and never have to worry about your content becoming out of sync.
+
+### Organization {#subsec_logging_organization}
