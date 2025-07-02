@@ -4,7 +4,9 @@
 
 Beautiful documentation starts with the content you create — and GitBook makes it easy to get started with any pre-existing content.
 
-[This is a link](page-4.md) to page 4
+[This is a link](https://inst.gitbook.io/test/NwElCfnSTGqaE8NOHX5I/four) to page 4
+
+
 
 {% hint style="info" %}
 Want to learn about writing content from scratch? Head to the [Basics](basics/editor.md) section to learn more.
@@ -24,4 +26,4 @@ GitBook also allows you to set up a bi-directional sync with an existing reposit
 
 GitBook also allows you to set up a bi-directional sync with an existing repository on GitHub or GitLab. Setting up Git Sync allows you and your team to write content in GitBook or in code, and never have to worry about your content becoming out of sync.
 
-### Organization {#subsec_logging_organization}
+### Organization <a href="#subsec_logging_organization" id="subsec_logging_organization"></a>
