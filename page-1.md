@@ -3,5 +3,6 @@
 Hello world!
 
 {% include ".gitbook/includes/hello-world.md" %}
+hi
 
 
