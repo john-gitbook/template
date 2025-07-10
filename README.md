@@ -18,7 +18,7 @@ Want to learn about writing content from scratch? Head to the [Basics](basics/ed
 
 ### Hello World <a href="#this_is_an_anchor" id="this_is_an_anchor"></a>
 
-*
+
 
 
 
