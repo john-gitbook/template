@@ -1,49 +1,31 @@
-# Quickstart
 
-<figure><img src="getting-started/images/getting-started.png" alt=""><figcaption></figcaption></figure>
+---
+icon: hand-wave
+cover: https://gitbookio.github.io/onboarding-template-images/header.png
+coverY: 0
+layout:
+  cover:
+    visible: true
+    size: full
+  title:
+    visible: true
+  description:
+    visible: false
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
+---
 
-Beautiful documentation starts with the content you create — and GitBook makes it easy to get started with any pre-existing content.
+# Welcome
 
-[This is a link](https://inst.gitbook.io/test/NwElCfnSTGqaE8NOHX5I/four) to page 4 via a redirect from the path 5
+Welcome to the GitBook Starter Template! Here you'll get an overview of all the amazing features GitBook offers to help you build beautiful, interactive documentation.
 
-[This is a link](page-5.md) to page 5 which doesn't exist
+You'll see some of the best parts of GitBook in action — and find help on how you can turn this template into your own. hi this is  a change
 
-[This is a link](page-3.md) to page 3 which does exist
+### Jump right in
 
-{% file src="broken-reference" %}
+<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-cover data-type="files"></th><th data-hidden></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>Getting Started</strong></td><td>Create your first site</td><td></td><td></td><td><a href="getting-started/quickstart.md">quickstart.md</a></td></tr><tr><td><strong>Basics</strong></td><td>Learn the basics of GitBook</td><td></td><td></td><td><a href="broken-reference">Broken link</a></td></tr><tr><td><strong>Publish your docs</strong></td><td>Share your docs online</td><td></td><td></td><td><a href="getting-started/publish-your-docs.md">publish-your-docs.md</a></td></tr></tbody></table>
 
-{% hint style="info" %}
-Want to learn about writing content from scratch? Head to the [Basics](basics/editor.md) section to learn more.
-{% endhint %}
-
-### Hello World <a href="#this_is_an_anchor" id="this_is_an_anchor"></a>
-
-
-
-
-
-{% include ".gitbook/includes/lists.md" %}
-
-
-
-GitBook supports importing content from many popular writing tools and formats. If your content already exists, you can upload a file or group of files to be imported.
-
-<div data-full-width="false"><figure><img src="getting-started/images/import.png" alt=""><figcaption></figcaption></figure></div>
-
-### Sync a repository <a href="#this_is_also_an_anchor" id="this_is_also_an_anchor"></a>
-
-GitBook also allows you to set up a bi-directional sync with an existing repository on GitHub or GitLab. Setting up Git Sync allows you and your team to write content in GitBook or in code, and never have to worry about your content becoming out of sync.
-
-
-
-{% include ".gitbook/includes/more-lists.md" %}
-
-
-
-{% include ".gitbook/includes/new-list-items.md" %}
-
-### Sync a repository <a href="#this_anchor" id="this_anchor"></a>
-
-GitBook also allows you to set up a bi-directional sync with an existing repository on GitHub or GitLab. Setting up Git Sync allows you and your team to write content in GitBook or in code, and never have to worry about your content becoming out of sync.
-
-### Organization <a href="#subsec_logging_organization" id="subsec_logging_organization"></a>
