@@ -10,13 +10,21 @@ Beautiful documentation starts with the content you create — and GitBook makes
 
 [This is a link](page-3.md) to page 3 which does exist
 
-
+{% file src="broken-reference" %}
 
 {% hint style="info" %}
 Want to learn about writing content from scratch? Head to the [Basics](basics/editor.md) section to learn more.
 {% endhint %}
 
 ### Hello World <a href="#this_is_an_anchor" id="this_is_an_anchor"></a>
+
+*
+
+
+
+{% include ".gitbook/includes/lists.md" %}
+
+
 
 GitBook supports importing content from many popular writing tools and formats. If your content already exists, you can upload a file or group of files to be imported.
 
