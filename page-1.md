@@ -1,7 +1,11 @@
-# 😀 Page 1
 
-Content!!!
 
+# 🤩 Page 1
+Hello world!
 {% include ".gitbook/includes/hello-world.md" %}
-
-hello hi
+{% include null %}
+{% include undefined %}
+{% include "" %}
+{% include [] %}
+{% include {} %}
+hi
