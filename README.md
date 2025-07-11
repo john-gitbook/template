@@ -6,7 +6,7 @@ You'll see some of the best parts of GitBook in action — and find help on how 
 
 <figure><img src="getting-started/images/import.png" alt=""><figcaption></figcaption></figure>
 
-
+ 
 
 Hello World!
 
