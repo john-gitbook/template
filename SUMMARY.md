@@ -5,7 +5,7 @@
 
 ## Getting Started
 
-* [Publish your docs](getting-started/publish-your-docs.md)
+* [Intro to publishing](getting-started/publish-your-docs.md)
 
 ## Basics
 
