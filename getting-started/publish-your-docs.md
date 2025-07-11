@@ -2,7 +2,7 @@
 icon: globe-pointer
 ---
 
-# Publish your docs to the web
+# This is a title written in GitHub
 
 Once you’ve finished writing, editing, or importing your content, you can publish your work to the web as a docs site. Once published, your site will be accessible online only to your selected audience.
 
