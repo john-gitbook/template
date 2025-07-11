@@ -5,7 +5,7 @@
 
 ## Getting Started
 
-* [Get Started publishing your docs](getting-started/publish-your-docs.md)
+* [I wrote this in the SUMMARY.md file](getting-started/publish-your-docs.md)
 
 ## Basics
 
