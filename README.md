@@ -6,6 +6,12 @@ You'll see some of the best parts of GitBook in action — and find help on how 
 
 <figure><img src="getting-started/images/import.png" alt=""><figcaption></figcaption></figure>
 
+{% include ".gitbook/includes/this-is-a-list-item (1).md" %}
+
+{% include ".gitbook/includes/more-lists.md" %}
+
+{% include ".gitbook/includes/lists.md" %}
+
 Hello World!
 
 
