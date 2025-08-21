@@ -15,7 +15,8 @@ Here is a code block:
 {% include ".gitbook/includes/hello-world.md" %}
 
 ```
-// Some code is written here. 
+// Some code is written here.
+{% include ".gitbook/includes/hello-world.md" %}
 ```
 
 ### Jump right in
