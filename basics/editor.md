@@ -2,7 +2,7 @@
 
 GitBook has a powerful block-based editor that allows you to seamlessly create, update, and enhance your content.
 
-this is a link to heading one[ here](../getting-started/publish-your-docs.md#heading-1)
+this is a link to heading one[ here](broken-reference)
 
 {% include "../.gitbook/includes/hello-world.md" %}
 
