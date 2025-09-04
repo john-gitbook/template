@@ -1,3 +1,7 @@
+---
+icon: code-fork
+---
+
 # Version Control
 
 Keep track of changes, roll back to a previous version and moreYou can easily monitor all the changes people have made to your content using to the **Version history** side panel.
