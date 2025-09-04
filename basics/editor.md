@@ -2,10 +2,6 @@
 
 GitBook has a powerful block-based editor that allows you to seamlessly create, update, and enhance your content.
 
-this is a link to heading one[ here](broken-reference)
-
-{% include "../.gitbook/includes/hello-world.md" %}
-
 ### Writing content
 
 GitBook offers a range of block types for you to add to your content inline — from simple text and tables, to code blocks and more. These elements will make your pages more useful to readers, and offer extra information and context.
