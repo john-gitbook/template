@@ -1,12 +1,7 @@
 # Table of contents
 
-## Overview
-
-* [Quickstart](Quickstart.md)
+* [Quickstart](README.md)
 * [Variables and Expressions](variables.md)
-
-***
-
 * [Translation](translation.md)
 
 ## Basics
