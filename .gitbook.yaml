@@ -1,4 +1,10 @@
+root: ./
+
 ​structure:
   readme: README.md
   summary: SUMMARY.md​
+
+redirects:
+  README: README.md
+
 
