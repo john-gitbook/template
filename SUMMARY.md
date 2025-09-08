@@ -3,6 +3,7 @@
 ## Overview
 
 * [Quickstart](Quickstart.md)
+* [Variables and Expressions](README.md)
 
 ***
 
@@ -16,4 +17,3 @@
 ***
 
 * [Version Control](version-control.md)
-* [Variables and Expressions](README.md)
