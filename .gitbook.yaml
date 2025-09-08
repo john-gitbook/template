@@ -1,6 +1,6 @@
 root: ./
 
 ​structure:
-  readme: variables-and-expressions.md
+  readme: README.md
   summary: SUMMARY.md​
 
