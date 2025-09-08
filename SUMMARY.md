@@ -3,11 +3,11 @@
 ## Overview
 
 * [Quickstart](Quickstart.md)
-* [Variables and Expressions](README.md)
+* [Variables and Expressions](variables.md)
 
 ***
 
-* [Translation](<README (1).md>)
+* [Translation](translation.md)
 
 ## Basics
 
