@@ -1,4 +1,6 @@
 root: ./
 
-redirects:
-  five: page-4.md
+​structure:
+  readme: variables-and-expressions.md
+  summary: SUMMARY.md​
+
