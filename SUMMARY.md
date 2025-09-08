@@ -16,3 +16,4 @@
 ***
 
 * [Version Control](version-control.md)
+* [Variables and Expressions](variables-and-expressions.md)
