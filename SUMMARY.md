@@ -1,6 +1,6 @@
 # Table of contents
 
-## Group 1
+## Overview
 
 * [Quickstart](README.md)
 
