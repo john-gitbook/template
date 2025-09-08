@@ -6,5 +6,6 @@ root: ./
 
 redirects:
   readme: variables.md
+  README: variables.md
 
 
