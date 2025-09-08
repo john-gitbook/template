@@ -5,6 +5,6 @@ root: ./
   summary: SUMMARY.md​
 
 redirects:
-  README: variables.md
+  readme: variables.md
 
 
