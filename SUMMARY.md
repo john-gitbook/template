@@ -1,6 +1,6 @@
 # Table of contents
 
-* [Quickstart](quickstart.md)
+* [Quickstart](README.md)
 * [Variables and Expressions](variables.md)
 * [Translation](translation.md)
 
