@@ -7,7 +7,7 @@ coverY: 0
 # Translation
 
 {% hint style="warning" %}
-Auto translations are currently in Beta. Let us know if you have any feedback or encounter any issues.
+Auto translations are currently in Beta. Let us know if you have any feedback or encounter any issues. 
 {% endhint %}
 
 Auto translations make it easy to keep your documentation up-to-date in multiple languages, with minimal manual effort. You can create a space as a translation of another, and let AI handle the rest.
