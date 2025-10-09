@@ -1,0 +1,88 @@
+name: Cleanup Unused GitBook Images
+
+on:
+  # Run weekly on Mondays at 9 AM UTC
+  schedule:
+    - cron: '0 9 * * 1'
+  
+  # Allow manual trigger
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Dry run (preview only, no deletion)'
+        required: false
+        default: 'false'
+        type: choice
+        options:
+          - 'true'
+          - 'false'
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  cleanup-unused-images:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Make cleanup script executable
+        run: chmod +x .github/scripts/cleanup-unused-images.py
+      
+      - name: Run cleanup script (dry-run to check)
+        id: check
+        run: |
+          python .github/scripts/cleanup-unused-images.py --dry-run
+        continue-on-error: true
+      
+      - name: Run cleanup script (actual deletion)
+        if: ${{ github.event.inputs.dry_run != 'true' && steps.check.outcome == 'failure' }}
+        run: |
+          python .github/scripts/cleanup-unused-images.py
+      
+      - name: Check for changes
+        id: git-check
+        run: |
+          git diff --exit-code || echo "changes=true" >> $GITHUB_OUTPUT
+      
+      - name: Create Pull Request
+        if: steps.git-check.outputs.changes == 'true'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: 'chore: remove unused GitBook images'
+          title: '🧹 Cleanup: Remove unused GitBook images'
+          body: |
+            This PR automatically removes unused image files from `.gitbook/assets` folder.
+            
+            ## Summary
+            - Scanned all `.md` files in the repository
+            - Identified images in `.gitbook/assets` that are not referenced
+            - Removed unused images to improve repository performance
+            
+            ## What's Changed
+            Images that are not referenced in any markdown files have been removed.
+            
+            **Please review the changes carefully before merging.**
+            
+            ---
+            *This PR was automatically created by the Cleanup Unused GitBook Images workflow.*
+          branch: cleanup/unused-gitbook-images
+          delete-branch: true
+          labels: |
+            automated
+            cleanup
+            documentation
+      
+      - name: No changes needed
+        if: steps.git-check.outputs.changes != 'true'
+        run: echo "✨ No unused images found. Repository is clean!"
