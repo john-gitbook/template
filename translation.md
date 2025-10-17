@@ -7,10 +7,10 @@ coverY: 0
 # Translation
 
 {% hint style="warning" %}
-Auto translations are currently in Beta. Let us know if you have any feedback or encounter any issues. 
+Auto translations are currently in Beta. Let us know if you have any feedback or encounter any issues.
 {% endhint %}
 
-Auto translations make it easy to keep your documentation up-to-date in multiple languages, with minimal manual effort. You can create a space as a translation of another, and let AI handle the rest.
+Auto translations make it easy to keep your documentation up-to-date in multiple languages, with minimal manual effort. You can create a space as a translation of another, and let AI handle the rest. Hello world!
 
 <figure><img src=".gitbook/assets/15_08_25_auto_translations.svg" alt=""><figcaption></figcaption></figure>
 
@@ -22,7 +22,7 @@ Auto translations make it easy to keep your documentation up-to-date in multiple
 
 ## Set up an auto translation
 
-To translate a space to a new language, start by creating a new [space](broken-reference) in your organization. From the modal that appears, click “Translation” from the quick actions menu.
+To translate a space to a new language, start by creating a new [space](broken-reference/) in your organization. From the modal that appears, click “Translation” from the quick actions menu.
 
 From the modal that appears, you’ll need to choose a:
 
@@ -50,7 +50,7 @@ Custom instructions cannot be used to create new elements on a translated space,
 
 ## Add a translation to a variant
 
-After creating a translation, you’ll be able to add it to published docs site as a [variant](broken-reference). This will allow users to toggle between languages in the upper left corner when viewing your main docs site.
+After creating a translation, you’ll be able to add it to published docs site as a [variant](broken-reference/). This will allow users to toggle between languages in the upper left corner when viewing your main docs site.
 
 Head to your site settings, under the structure tab to set up a new variant for any translations you have.
 
@@ -104,9 +104,9 @@ You should only create **one translation workflow per language** of any given so
 
 <summary>What are some current limitations?</summary>
 
-* Translations do not localize UI elements in your variant automatically. Head to your site’s customization settings to [localize the interface](broken-reference) for a [specific variant](broken-reference).
+* Translations do not localize UI elements in your variant automatically. Head to your site’s customization settings to [localize the interface](broken-reference/) for a [specific variant](broken-reference/).
   * This includes user-input customizations, such as announcement banners.
-* Translations cannot add extra content to the page - like a hint or a banner noting that a page was translated by AI. Consider adding an extra page in the translated space to note this, or the [announcement banner](broken-reference) in your site variant.
+* Translations cannot add extra content to the page - like a hint or a banner noting that a page was translated by AI. Consider adding an extra page in the translated space to note this, or the [announcement banner](broken-reference/) in your site variant.
 * Changing the glossary triggers a full re-translation of all pages, which can increase processing time and cost. There is no partial re-translation based on glossary usage at this time.
 
 </details>
