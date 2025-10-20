@@ -11,5 +11,5 @@
 
 ***
 
-* [Version Control](version-control/README.md)
+* [Version Control](version-control.md)
   * [Page 1](version-control/page-1.md)
