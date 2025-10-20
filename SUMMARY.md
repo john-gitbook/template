@@ -11,7 +11,7 @@
 
 ***
 
-* [Version Control](version-control.md)
+* [Version Control](version-control/README.md)
   * [Page 1](version-control/page-1.md)
 
 ## Group 1
