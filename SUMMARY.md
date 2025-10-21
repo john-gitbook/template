@@ -2,7 +2,7 @@
 
 * [Quickstart](README.md)
 * [Variables and Expressions](variables.md)
-* [Translation](translation.md)
+* [Translation](1-translation.md)
 
 ## Basics
 
