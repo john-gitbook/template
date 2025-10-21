@@ -2,12 +2,12 @@
 
 * [Quickstart](README.md)
 * [Variables and Expressions](variables.md)
-* [Translation](1-translation.md)
+* [Translation](translation.md)
 
-## Basics
+## Basics <a href="#1-bas" id="1-bas"></a>
 
-* [Editor](basics/editor.md)
-* [Images & media](basics/images-and-media.md)
+* [Editor](1-bas/editor.md)
+* [Images & media](1-bas/images-and-media.md)
 
 ***
 
