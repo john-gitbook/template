@@ -1,0 +1,44 @@
+# Basic YAML Configuration File
+
+# Simple key-value pairs
+name: John Doe
+age: 30
+active: true
+
+# Nested objects
+address:
+  street: 123 Main St
+  city: Springfield
+  state: IL
+  zip: 62701
+
+# Lists
+hobbies:
+  - reading
+  - hiking
+  - photography
+
+# List of objects
+contacts:
+  - name: Alice
+    email: alice@example.com
+    phone: 555-0001
+  - name: Bob
+    email: bob@example.com
+    phone: 555-0002
+
+# Multi-line strings
+description: |
+  This is a multi-line string.
+  It preserves line breaks.
+  Great for longer text content.
+
+# Inline list
+colors: [red, green, blue]
+
+# Inline object
+coordinates: {latitude: 40.7128, longitude: -74.0060}
+
+# Numbers
+count: 42
+price: 19.99
