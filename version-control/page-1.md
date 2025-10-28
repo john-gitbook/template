@@ -1,5 +1,5 @@
 ---
-hidden: true
+noIndex: true
 ---
 
 # Page 1
