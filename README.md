@@ -1,5 +1,7 @@
 ---
 icon: play
+cover: .gitbook/assets/dlpJ8mw3qzo9mPJuzooi1SEgw.jpg
+coverY: 0
 ---
 
 # Quickstart
