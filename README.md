@@ -1,7 +1,12 @@
 ---
 icon: play
+cover: .gitbook/assets/dlpJ8mw3qzo9mPJuzooi1SEgw.jpg
+coverY: 0
 layout:
   width: default
+  cover:
+    visible: true
+    size: hero
   title:
     visible: true
   description:
