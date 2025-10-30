@@ -4,9 +4,9 @@
 * [Variables and Expressions](variables.md)
 * [Translation](translation.md)
 
-## Basics <a href="#1-bas" id="1-bas"></a>
+## Basics <a href="#id-1-bas" id="id-1-bas"></a>
 
-* [Editor](1-bas/editor.md)
+* [Editor](id-1-bas/editor-2.md)
 * [Images & media](1-bas/images-and-media.md)
 
 ***
