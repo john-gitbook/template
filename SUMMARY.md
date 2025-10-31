@@ -14,3 +14,14 @@
 * [Version Control](version-control/README.md)
   * [Page 1](version-control/page-1.md)
 * [Page 2](fruit-vitamins-table.md)
+* ```yaml
+  type: builtin:openapi
+  props:
+    models: true
+    downloadLink: true
+  dependencies:
+    spec:
+      ref:
+        kind: openapi
+        spec: gitbook-petstore
+  ```
