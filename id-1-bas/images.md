@@ -11,3 +11,20 @@ GitBook allows you to add images and media easily to your docs. Simply drag a fi
 {% hint style="info" %}
 You can also add images simply by copying and pasting them directly into the editor — and GitBook will automatically add it to your file manager.
 {% endhint %}
+
+1. First item
+   1. Nested item
+   2. Nested item
+2. Second item
+   1. Nested item
+   2. Nested item
+```
+
+Or with manual numbering for 1.1, 1.2 format:
+```
+1. First item
+   - 1.1 Nested item
+   - 1.2 Nested item
+2. Second item
+   - 2.1 Nested item
+   - 2.2 Nested item
