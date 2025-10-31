@@ -6,7 +6,7 @@ icon: icons
 
 # Variables and Expressions
 
-With variables you can create reusable text that can be conditionally referenced in [expressions](broken-reference/) and [conditions for adaptive content](broken-reference/).
+With variables you can create reusable text that can be conditionally referenced in [expressions](broken-reference/) and [conditions for adaptive content](broken-reference/). Test&#x20;
 
 If you repeat the same name, phrase or version number multiple times within your content, you can create a **variable** to help keep all those instances in sync and accurate — which is useful if you ever need to update them, or they’re complex and often mistyped.
 
