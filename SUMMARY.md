@@ -8,14 +8,3 @@
 * [Editor](basics/editor.md)
 * [Images & media](basics/images-and-media.md)
 * [Version Control](version-control.md)
-
-## Tutorial Links
-
-* [Main Site](https://gitbook.com/)
-* [Another External Link](https://github.com/)
-
-***
-
-* [Tutorials](tutorials/README.md)
-  * [tutorial 1](https://gitbook.com/)
-  * [tutorial 2](https://github.com/)
