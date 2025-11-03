@@ -4,7 +4,7 @@ icon: code-fork
 
 # Version Control
 
-Keep track of changes, roll back to a previous version and moreYou can easily monitor all the changes people have made to your content using to the **Version history** side panel.
+Keep track of changes, hello world! roll back to a previous version and moreYou can easily monitor all the changes people have made to your content using to the **Version history** side panel.
 
 ### Version history <a href="#see-the-activity-of-a-specific-draft" id="see-the-activity-of-a-specific-draft"></a>
 
