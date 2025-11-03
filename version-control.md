@@ -10,17 +10,17 @@ Keep track of changes, hello world! roll back to a previous version and moreYou 
 
 In the Version history of a space, you can see a list of all the actions that changed the content within it. These include:
 
-* When someone made [live edits](https://app.gitbook.com/o/d8f63b60-89ae-11e7-8574-5927d48c4877/s/NkEGS7hzeqa35sMXQZ4X/collaboration/live-edits) to the space.
-* When someone merged a [change request](https://app.gitbook.com/o/d8f63b60-89ae-11e7-8574-5927d48c4877/s/NkEGS7hzeqa35sMXQZ4X/collaboration/change-requests).
-* When someone performed a [Git Sync](https://app.gitbook.com/o/d8f63b60-89ae-11e7-8574-5927d48c4877/s/NkEGS7hzeqa35sMXQZ4X/getting-started/git-sync) operation.
+* When someone made [live edits](https://app.gitbook.com/s/NkEGS7hzeqa35sMXQZ4X/collaboration/live-edits) to the space.
+* When someone merged a [change request](https://app.gitbook.com/s/NkEGS7hzeqa35sMXQZ4X/collaboration/change-requests).
+* When someone performed a [Git Sync](https://app.gitbook.com/s/NkEGS7hzeqa35sMXQZ4X/getting-started/git-sync) operation.
 
 ### View historical versions of content <a href="#view-historical-versions-of-content" id="view-historical-versions-of-content"></a>
 
-To view past versions of your content and see the changes that were made, click the **Version history** button in the [space header](https://app.gitbook.com/o/d8f63b60-89ae-11e7-8574-5927d48c4877/s/NkEGS7hzeqa35sMXQZ4X/resources/gitbook-ui#space-header), or open the **Actions menu** next to the space or change request title and choose **Version history**.Click on any item in the list to see how your content looked at the point this change was made. This is very similar to how you view [change requests](https://app.gitbook.com/o/d8f63b60-89ae-11e7-8574-5927d48c4877/s/NkEGS7hzeqa35sMXQZ4X/collaboration/change-requests).
+To view past versions of your content and see the changes that were made, click the **Version history** button in the [space header](https://app.gitbook.com/s/NkEGS7hzeqa35sMXQZ4X/resources/gitbook-ui#space-header), or open the **Actions menu** next to the space or change request title and choose **Version history**.Click on any item in the list to see how your content looked at the point this change was made. This is very similar to how you view [change requests](https://app.gitbook.com/s/NkEGS7hzeqa35sMXQZ4X/collaboration/change-requests).
 
 ### Show changes <a href="#show-changes" id="show-changes"></a>
 
-When you are viewing an old version of your content, you can choose to highlight the differences between the old and current content — similar to [diff view in a change request](https://app.gitbook.com/o/d8f63b60-89ae-11e7-8574-5927d48c4877/s/NkEGS7hzeqa35sMXQZ4X/collaboration/change-requests#diff-mode).To enable or disable this, use the **Show changes** toggle at the bottom of the **Version history** side panel.With show changes enabled, content that has changed will be highlighted by an icon on the left of its content block.
+When you are viewing an old version of your content, you can choose to highlight the differences between the old and current content — similar to [diff view in a change request](https://app.gitbook.com/s/NkEGS7hzeqa35sMXQZ4X/collaboration/change-requests#diff-mode).To enable or disable this, use the **Show changes** toggle at the bottom of the **Version history** side panel.With show changes enabled, content that has changed will be highlighted by an icon on the left of its content block.
 
 ### Viewing historical published versions <a href="#viewing-historical-published-versions" id="viewing-historical-published-versions"></a>
 
