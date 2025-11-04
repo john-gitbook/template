@@ -26,10 +26,9 @@ _**Italics**_
 
 <mark style="background-color:blue;">This text has a blue background colour added</mark>
 
+
+
 ## Lists and steppers:
-
-
-
 * This is unordered list item 1
 * This is unordered list item 2
 
@@ -53,6 +52,8 @@ Here's some more content for the step block
 {% endstep %}
 {% endstepper %}
 
+
+
 ## Links:
 
 [This](https://gitbook.com/) is an incline link to the GitBook website.&#x20;
@@ -68,6 +69,8 @@ Below I will add a page link:
 Below is an embeded URL. In this case it is an embed of a Youtube video:
 
 {% embed url="https://www.youtube.com/watch?v=2T04FzqziEI" %}
+
+
 
 ## Hint Blocks
 
@@ -87,12 +90,16 @@ This is a danger hint block
 This is a success hint block
 {% endhint %}
 
+
+
 ## Tables, Tabs, Code Blocks, Cards and Expandables
 
 | Header Column 1 | Header Column 2 |
 | --------------- | --------------- |
 | row 1           | row 1           |
 | row 2           | row 2           |
+
+
 
 {% tabs %}
 {% tab title="First Tab" %}
@@ -104,9 +111,12 @@ This is content within a second tab
 {% endtab %}
 {% endtabs %}
 
+
+
 ```markup
 This is a code block with the language choosen as Markup.
 ```
+
 
 You can insert code blocks in tabs. Below this I will include a tab with multiple code blocks.
 
@@ -132,6 +142,7 @@ puts message
 ```
 {% endtab %}
 {% endtabs %}
+
 
 Below is a card with a card title and card image.&#x20;
 
