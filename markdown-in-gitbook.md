@@ -159,6 +159,18 @@ Below this text there is a divider
 
 <a href="markdown-in-gitbook.md#headings-paragraphs-and-formatting" class="button secondary">This is a secondary button</a>
 
+below is a file that can be downloaded:
 
+{% file src=".gitbook/assets/markdown-blocks.pdf" %}
+
+{% columns %}
+{% column %}
+
+{% endcolumn %}
+
+{% column %}
+Second column
+{% endcolumn %}
+{% endcolumns %}
 
 [^1]: this is my annotation
