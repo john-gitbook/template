@@ -22,7 +22,7 @@ _**Italics**_
 
 [This is going to be annotated](#user-content-fn-1)[^1]
 
-<mark style="color:green;">This text is highlighted but it could also be highligted any other colour like</mark> <mark style="color:yellow;">yellow</mark>
+<mark style="color:green;">This text is highlighted</mark>
 
 <mark style="background-color:blue;">This text has a blue background colour added</mark>
 
