@@ -26,9 +26,8 @@ _**Italics**_
 
 <mark style="background-color:blue;">This text has a blue background colour added</mark>
 
-
-
 ## Lists and steppers:
+
 * This is unordered list item 1
 * This is unordered list item 2
 
@@ -40,23 +39,21 @@ _**Italics**_
 
 {% stepper %}
 {% step %}
-### This is step 1 in a stepper block
+#### This is step 1 in a stepper block
 
 Here's some content for the step block
 {% endstep %}
 
 {% step %}
-### This is step 2 in a stepper block
+#### This is step 2 in a stepper block
 
 Here's some more content for the step block
 {% endstep %}
 {% endstepper %}
 
-
-
 ## Links:
 
-[This](https://gitbook.com/) is an incline link to the GitBook website.&#x20;
+[This](https://gitbook.com/) is an incline link to the GitBook website.
 
 Below I will add a page link:
 
@@ -69,8 +66,6 @@ Below I will add a page link:
 Below is an embeded URL. In this case it is an embed of a Youtube video:
 
 {% embed url="https://www.youtube.com/watch?v=2T04FzqziEI" %}
-
-
 
 ## Hint Blocks
 
@@ -90,16 +85,12 @@ This is a danger hint block
 This is a success hint block
 {% endhint %}
 
-
-
 ## Tables, Tabs, Code Blocks, Cards and Expandables
 
 | Header Column 1 | Header Column 2 |
 | --------------- | --------------- |
 | row 1           | row 1           |
 | row 2           | row 2           |
-
-
 
 {% tabs %}
 {% tab title="First Tab" %}
@@ -111,12 +102,9 @@ This is content within a second tab
 {% endtab %}
 {% endtabs %}
 
-
-
 ```markup
 This is a code block with the language choosen as Markup.
 ```
-
 
 You can insert code blocks in tabs. Below this I will include a tab with multiple code blocks.
 
@@ -143,8 +131,7 @@ puts message
 {% endtab %}
 {% endtabs %}
 
-
-Below is a card with a card title and card image.&#x20;
+Below is a card with a card title and card image.
 
 <table data-view="cards"><thead><tr><th></th><th data-hidden data-card-cover data-type="image">Cover image</th></tr></thead><tbody><tr><td>This is a Card Title</td><td><a href="https://images.unsplash.com/photo-1760624876599-a29c55487fed?crop=entropy&#x26;cs=srgb&#x26;fm=jpg&#x26;ixid=M3wxOTcwMjR8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjIyNzI3ODh8&#x26;ixlib=rb-4.1.0&#x26;q=85">https://images.unsplash.com/photo-1760624876599-a29c55487fed?crop=entropy&#x26;cs=srgb&#x26;fm=jpg&#x26;ixid=M3wxOTcwMjR8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjIyNzI3ODh8&#x26;ixlib=rb-4.1.0&#x26;q=85</a></td></tr></tbody></table>
 
@@ -156,8 +143,6 @@ This is the text within the expandable
 
 </details>
 
-
-
 ## Other blocks:
 
 Below this text there is a divider
@@ -166,7 +151,7 @@ Below this text there is a divider
 
 > This is a quote block. Not a very interesting quote.
 
-<a href="markdown-in-gitbook.md#heading-1" class="button primary">This is a primary button</a>&#x20;
+<a href="markdown-in-gitbook.md#heading-1" class="button primary">This is a primary button</a>
 
 <a href="markdown-in-gitbook.md#headings-paragraphs-and-formatting" class="button secondary">This is a secondary button</a>
 
