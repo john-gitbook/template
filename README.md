@@ -8,11 +8,7 @@ Welcome to the GitBook Starter Template! Here you'll get an overview of all the 
 
 You'll see some of the best parts of GitBook in action — and find help on how you can turn this template into your own. hi this is a change.&#x20;
 
-<figure><img src=".gitbook/assets/2025.11.07.png" alt=""><figcaption></figcaption></figure>
-
-<figure><img src=".gitbook/assets/12.34.56.png" alt=""><figcaption></figcaption></figure>
-
-<figure><img src="getting-started/images/images-and-media.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
 
 ### Jump right in now
 
