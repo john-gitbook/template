@@ -1,7 +1,5 @@
 # Page 1
 
-Stepper blocks let you break down a tutorial or guide into seprate, but clearly linked steps. Each step can contain multiple different blocks, allowing you to add detailed information. Just adding some content here!
-
 #### Example
 
 {% stepper %}
