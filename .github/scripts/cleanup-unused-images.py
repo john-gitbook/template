@@ -1,176 +1,133 @@
-#!/usr/bin/env python3
-"""
-Script to find and remove unused images from .gitbook/assets folder.
-Scans all .md files to check if images are referenced.
-"""
+name: Auto-update SUMMARY.md
 
-import os
-import re
-import sys
-from pathlib import Path
-from typing import Set, List
+on:
+  push:
+    paths:
+      - '**.md'
 
-def find_all_assets(assets_dir: str = ".gitbook/assets") -> Set[str]:
-    """Find all files in the assets directory."""
-    assets_path = Path(assets_dir)
-    if not assets_path.exists():
-        print(f"❌ Assets directory '{assets_dir}' not found")
-        return set()
-    
-    assets = set()
-    for root, _, files in os.walk(assets_path):
-        for file in files:
-            # Get relative path from repo root
-            rel_path = os.path.relpath(os.path.join(root, file))
-            assets.add(rel_path)
-    
-    print(f"📁 Found {len(assets)} files in {assets_dir}")
-    return assets
+permissions:
+  contents: write
 
-def find_all_markdown_files(root_dir: str = ".") -> List[str]:
-    """Find all .md files in the repository."""
-    md_files = []
-    for root, _, files in os.walk(root_dir):
-        # Skip .git directory and node_modules
-        if '.git' in root or 'node_modules' in root:
-            continue
-        for file in files:
-            if file.endswith('.md'):
-                md_files.append(os.path.join(root, file))
+jobs:
+  update-summary:
+    runs-on: ubuntu-latest
     
-    print(f"📝 Found {len(md_files)} markdown files")
-    return md_files
-
-def find_referenced_assets(md_files: List[str], assets: Set[str]) -> Set[str]:
-    """
-    Find which assets are referenced in markdown files.
-    Checks for various markdown image patterns.
-    """
-    referenced = set()
-    
-    # Patterns to match image references
-    # ![alt](.gitbook/assets/image.png)
-    # ![alt](../.gitbook/assets/image.png)
-    # <img src=".gitbook/assets/image.png">
-    # Direct file references
-    
-    for md_file in md_files:
-        try:
-            with open(md_file, 'r', encoding='utf-8') as f:
-                content = f.read()
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Update SUMMARY.md
+        run: |
+          #!/bin/bash
+          set -e
+          
+          echo "🔍 Scanning repository for markdown files..."
+          
+          # Find all .md files except SUMMARY.md and README.md
+          all_md_files=$(find . -type f -name "*.md" \
+            ! -path "./SUMMARY.md" \
+            ! -path "./README.md" \
+            ! -path "*/node_modules/*" \
+            ! -path "*/.git/*" \
+            | sort)
+          
+          total_files=$(echo "$all_md_files" | wc -l)
+          echo "📄 Found $total_files markdown file(s) to check"
+          
+          # Read SUMMARY.md content
+          summary_content=$(cat SUMMARY.md)
+          
+          # Track missing files
+          missing_files=()
+          found_files=()
+          
+          # Check each .md file
+          for file in $all_md_files; do
+            clean_path="${file#./}"
+            
+            if echo "$summary_content" | grep -q "$clean_path"; then
+              found_files+=("$clean_path")
+            else
+              missing_files+=("$clean_path")
+            fi
+          done
+          
+          echo "✅ Files already in SUMMARY.md: ${#found_files[@]}"
+          echo "➕ Files to add: ${#missing_files[@]}"
+          
+          # Add missing files to SUMMARY.md
+          if [ ${#missing_files[@]} -gt 0 ]; then
+            echo ""
+            echo "📝 Adding missing files to SUMMARY.md:"
+            echo "" >> SUMMARY.md
+            echo "## Auto-added pages" >> SUMMARY.md
+            
+            for file in "${missing_files[@]}"; do
+              # Extract filename without extension for title
+              filename=$(basename "$file" .md)
+              # Convert hyphens/underscores to spaces and capitalize first letter of each word
+              title=$(echo "$filename" | sed 's/[-_]/ /g' | awk '{for(i=1;i<=NF;i++)sub(/./,toupper(substr($i,1,1)),$i)}1')
+              
+              echo "* [$title]($file)" >> SUMMARY.md
+              echo "  ✓ Added: $file as '$title'"
+            done
+          fi
+          
+          # Fix capitalization in existing entries
+          echo ""
+          echo "🔤 Fixing capitalization in SUMMARY.md..."
+          
+          # Create a temporary file
+          temp_file=$(mktemp)
+          
+          # Process SUMMARY.md line by line
+          while IFS= read -r line; do
+            # Check if line contains a markdown link with .md extension
+            if echo "$line" | grep -q '\[.*\](.*\.md)'; then
+              # Extract the title and path
+              if [[ $line =~ \[([^\]]+)\]\(([^\)]+)\) ]]; then
+                old_title="${BASH_REMATCH[1]}"
+                path="${BASH_REMATCH[2]}"
                 
-                # Check each asset to see if it's referenced
-                for asset in assets:
-                    asset_name = os.path.basename(asset)
-                    asset_path_variants = [
-                        asset,  # Full path: .gitbook/assets/image.png
-                        asset.replace('.gitbook/assets/', ''),  # Just filename
-                        f"../{asset}",  # Relative path
-                        f"../../{asset}",  # Deeper relative path
-                        asset_path_variants_normalized(md_file, asset)
-                    ]
-                    
-                    # Check if any variant is in the content
-                    for variant in asset_path_variants:
-                        if variant and variant in content:
-                            referenced.add(asset)
-                            break
-                    
-                    # Also check for the filename without path
-                    if asset_name in content:
-                        referenced.add(asset)
-                        
-        except Exception as e:
-            print(f"⚠️  Warning: Could not read {md_file}: {e}")
-    
-    print(f"✅ Found {len(referenced)} referenced assets")
-    return referenced
-
-def asset_path_variants_normalized(md_file: str, asset: str) -> str:
-    """Generate normalized relative path from md file to asset."""
-    try:
-        md_dir = os.path.dirname(os.path.abspath(md_file))
-        asset_abs = os.path.abspath(asset)
-        rel_path = os.path.relpath(asset_abs, md_dir)
-        return rel_path
-    except:
-        return ""
-
-def delete_unused_assets(unused_assets: Set[str], dry_run: bool = False) -> None:
-    """Delete unused assets from the repository."""
-    if not unused_assets:
-        print("\n✨ No unused assets found! Your repository is clean.")
-        return
-    
-    print(f"\n🗑️  Found {len(unused_assets)} unused assets:")
-    for asset in sorted(unused_assets):
-        print(f"   - {asset}")
-    
-    if dry_run:
-        print("\n🔍 DRY RUN: No files were deleted.")
-        print("   Remove the --dry-run flag to actually delete these files.")
-        return
-    
-    print("\n🗑️  Deleting unused assets...")
-    deleted_count = 0
-    for asset in unused_assets:
-        try:
-            if os.path.exists(asset):
-                os.remove(asset)
-                deleted_count += 1
-                print(f"   ✓ Deleted: {asset}")
-        except Exception as e:
-            print(f"   ✗ Error deleting {asset}: {e}")
-    
-    print(f"\n✅ Successfully deleted {deleted_count} unused assets")
-
-def main():
-    """Main function to orchestrate the cleanup process."""
-    print("🧹 GitBook Assets Cleanup Tool")
-    print("=" * 50)
-    
-    # Check for dry-run flag
-    dry_run = "--dry-run" in sys.argv
-    assets_dir = ".gitbook/assets"
-    
-    # Allow custom assets directory
-    for arg in sys.argv[1:]:
-        if arg.startswith("--assets-dir="):
-            assets_dir = arg.split("=")[1]
-    
-    # Step 1: Find all assets
-    all_assets = find_all_assets(assets_dir)
-    if not all_assets:
-        print("No assets found. Exiting.")
-        return
-    
-    # Step 2: Find all markdown files
-    md_files = find_all_markdown_files()
-    if not md_files:
-        print("⚠️  No markdown files found. This seems unusual.")
-        return
-    
-    # Step 3: Find referenced assets
-    referenced_assets = find_referenced_assets(md_files, all_assets)
-    
-    # Step 4: Calculate unused assets
-    unused_assets = all_assets - referenced_assets
-    
-    # Step 5: Delete unused assets
-    delete_unused_assets(unused_assets, dry_run)
-    
-    # Summary
-    print("\n" + "=" * 50)
-    print("📊 Summary:")
-    print(f"   Total assets: {len(all_assets)}")
-    print(f"   Referenced: {len(referenced_assets)}")
-    print(f"   Unused: {len(unused_assets)}")
-    
-    # Exit with status code 1 if unused assets were found (for CI)
-    if unused_assets and not dry_run:
-        sys.exit(0)  # Success - cleaned up
-    elif unused_assets and dry_run:
-        sys.exit(1)  # Found issues in dry-run mode
-
-if __name__ == "__main__":
-    main()
+                # Capitalize first letter of each word in title
+                new_title=$(echo "$old_title" | awk '{for(i=1;i<=NF;i++)sub(/./,toupper(substr($i,1,1)),$i)}1')
+                
+                # Get the indentation/prefix (*, -, numbers, spaces)
+                prefix=$(echo "$line" | sed 's/\[.*//')
+                
+                # Reconstruct the line with capitalized title
+                new_line="${prefix}[$new_title]($path)"
+                
+                if [ "$old_title" != "$new_title" ]; then
+                  echo "  ✓ Fixed: '$old_title' → '$new_title'"
+                fi
+                
+                echo "$new_line" >> "$temp_file"
+              else
+                echo "$line" >> "$temp_file"
+              fi
+            else
+              # Keep non-link lines as-is
+              echo "$line" >> "$temp_file"
+            fi
+          done < SUMMARY.md
+          
+          # Replace original with fixed version
+          mv "$temp_file" SUMMARY.md
+          
+          echo ""
+          echo "✅ SUMMARY.md updated successfully!"
+      
+      - name: Commit changes
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          
+          if git diff --quiet SUMMARY.md; then
+            echo "✅ No changes needed - SUMMARY.md is up to date!"
+          else
+            git add SUMMARY.md
+            git commit -m "chore: auto-update SUMMARY.md with new pages and fix capitalization"
+            git push
+            echo "✅ Changes committed and pushed!"
+          fi
