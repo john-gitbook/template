@@ -5,12 +5,6 @@ on:
     paths:
       - '**.md'
   workflow_dispatch:
-    inputs:
-      spell_check:
-        description: 'Run spell check on all markdown files'
-        required: false
-        type: boolean
-        default: false
 
 permissions:
   contents: write
@@ -140,24 +134,23 @@ jobs:
           echo ""
           echo "✅ SUMMARY.md updated successfully!"
       
-      - name: Spell check markdown files
-        if: github.event.inputs.spell_check == 'true' || github.event_name == 'push'
+      - name: Install spell checker
         run: |
-          echo "📖 Running spell check on markdown files..."
-          
-          # Install aspell
-          sudo apt-get update
+          echo "📦 Installing aspell..."
+          sudo apt-get update -qq
           sudo apt-get install -y aspell aspell-en
+          echo "✅ Aspell installed: $(aspell --version | head -n1)"
+      
+      - name: Spell check markdown files
+        run: |
+          echo ""
+          echo "=========================================="
+          echo "📖 SPELL CHECK REPORT"
+          echo "=========================================="
+          echo ""
           
-          # Find all markdown files
-          all_md_files=$(find . -type f -name "*.md" \
-            ! -path "*/node_modules/*" \
-            ! -path "*/.git/*" \
-            2>/dev/null)
-          
-          # Create custom dictionary for technical terms (add your own terms here)
-          cat > .aspell.en.pws << 'EOF'
-          personal_ws-1.1 en 0
+          # Create custom dictionary for technical terms
+          cat > custom-dict.txt << 'EOF'
           GitBook
           API
           APIs
@@ -167,51 +160,111 @@ jobs:
           SAML
           SSO
           Github
+          GitHub
           Markdown
           HTTP
           HTTPS
           URL
           URLs
           README
+          CLI
+          SDK
+          UI
+          UX
+          auth
+          config
+          repo
+          docs
+          npm
           EOF
           
+          # Find all markdown files
+          all_md_files=$(find . -type f -name "*.md" \
+            ! -path "*/node_modules/*" \
+            ! -path "*/.git/*" \
+            2>/dev/null)
+          
+          total_files=$(echo "$all_md_files" | grep -c '^' || echo "0")
+          echo "Checking $total_files markdown files for spelling errors..."
+          echo ""
+          
           error_count=0
+          file_count=0
           
           # Check each file
           while IFS= read -r file; do
             [ -z "$file" ] && continue
+            file_count=$((file_count + 1))
             
-            echo ""
-            echo "Checking: $file"
+            echo "[$file_count/$total_files] 📄 $file"
             
-            # Extract text content (remove code blocks and inline code)
-            content=$(cat "$file" | \
-              sed '/```/,/```/d' | \
+            # Check if file has content
+            if [ ! -s "$file" ]; then
+              echo "           ⚠️  Empty file, skipping"
+              echo ""
+              continue
+            fi
+            
+            # Create temp file with processed content
+            temp_content=$(mktemp)
+            
+            # Remove markdown syntax but keep text
+            cat "$file" | \
+              sed '/^```/,/^```/d' | \
               sed 's/`[^`]*`//g' | \
-              sed 's/\[.*\](.*)//g' | \
-              sed 's/^#.*//g')
+              sed 's/!\?\[[^]]*\]([^)]*)//g' | \
+              sed 's/^#+\s*//' | \
+              sed 's/\*\*//g' | \
+              sed 's/__//g' | \
+              sed 's/\*//g' | \
+              sed 's/_//g' > "$temp_content"
             
-            # Run spell check
-            misspelled=$(echo "$content" | aspell list --personal=.aspell.en.pws --lang=en | sort -u)
+            # Check if processed content is empty
+            if [ ! -s "$temp_content" ]; then
+              echo "           ℹ️  No text to check"
+              rm "$temp_content"
+              echo ""
+              continue
+            fi
+            
+            # Run spell check with custom dictionary
+            misspelled=$(cat "$temp_content" | \
+              aspell list --lang=en --ignore-case | \
+              grep -vFf custom-dict.txt | \
+              sort -u || true)
+            
+            rm "$temp_content"
             
             if [ -n "$misspelled" ]; then
-              echo "  ⚠️  Potential spelling errors found:"
+              echo "           ❌ Spelling errors found:"
               echo "$misspelled" | while read -r word; do
-                echo "    - $word"
+                if [ -n "$word" ]; then
+                  # Count occurrences
+                  count=$(grep -io "\b$word\b" "$file" | wc -l)
+                  echo "              • $word (${count}x)"
+                fi
               done
               error_count=$((error_count + 1))
             else
-              echo "  ✓ No spelling errors found"
+              echo "           ✅ No errors"
             fi
+            echo ""
           done <<< "$all_md_files"
           
-          echo ""
+          echo "=========================================="
+          echo "📊 SUMMARY"
+          echo "=========================================="
+          echo "Files checked: $file_count"
+          echo "Files with spelling errors: $error_count"
           if [ $error_count -gt 0 ]; then
-            echo "⚠️  Spell check found potential errors in $error_count file(s)"
-            echo "Note: This is informational only and won't fail the workflow"
+            echo ""
+            echo "⚠️  Found spelling errors in $error_count file(s)"
+            echo "Note: This is informational only"
           else
-            echo "✅ No spelling errors found in any files!"
+            echo ""
+            echo "✅ No spelling errors found!"
           fi
+          echo "=========================================="
       
       - name: Commit changes
         run: |
