@@ -5,6 +5,9 @@ on:
     paths:
       - '**.md'
 
+permissions:
+  contents: write
+
 jobs:
   update-summary:
     runs-on: ubuntu-latest
@@ -12,8 +15,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
       
       - name: Update SUMMARY.md with missing files
         run: |
