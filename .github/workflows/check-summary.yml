@@ -1,25 +1,24 @@
-name: Auto-update SUMMARY.md
+name: Check SUMMARY.md Coverage
 
 on:
   push:
     paths:
       - '**.md'
 
-permissions:
-  contents: write
-
 jobs:
-  update-summary:
+  check-summary:
     runs-on: ubuntu-latest
     
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
       
-      - name: Update SUMMARY.md with missing files
+      - name: Check SUMMARY.md coverage
         run: |
           #!/bin/bash
           set -e
+          
+          echo "🔍 Scanning repository for markdown files..."
           
           # Find all .md files except SUMMARY.md and README.md
           all_md_files=$(find . -type f -name "*.md" \
@@ -29,11 +28,21 @@ jobs:
             ! -path "*/.git/*" \
             | sort)
           
+          total_files=$(echo "$all_md_files" | wc -l)
+          echo "📄 Found $total_files markdown file(s) to check"
+          echo ""
+          
           # Read SUMMARY.md content
+          if [ ! -f "SUMMARY.md" ]; then
+            echo "❌ SUMMARY.md not found in repository!"
+            exit 1
+          fi
+          
           summary_content=$(cat SUMMARY.md)
           
-          # Track missing files
+          # Track missing and found files
           missing_files=()
+          found_files=()
           
           # Check each .md file
           for file in $all_md_files; do
@@ -41,43 +50,28 @@ jobs:
             clean_path="${file#./}"
             
             # Check if the file path appears in SUMMARY.md
-            if ! echo "$summary_content" | grep -q "$clean_path"; then
+            if echo "$summary_content" | grep -q "$clean_path"; then
+              found_files+=("$clean_path")
+            else
               missing_files+=("$clean_path")
             fi
           done
           
-          # If there are missing files, add them to SUMMARY.md
-          if [ ${#missing_files[@]} -gt 0 ]; then
-            echo "📝 Adding missing files to SUMMARY.md:"
-            
-            # Append to SUMMARY.md
-            echo "" >> SUMMARY.md
-            echo "## Auto-added pages" >> SUMMARY.md
-            
-            for file in "${missing_files[@]}"; do
-              # Extract filename without extension for title
-              filename=$(basename "$file" .md)
-              # Convert hyphens/underscores to spaces and capitalize
-              title=$(echo "$filename" | sed 's/[-_]/ /g' | awk '{for(i=1;i<=NF;i++)sub(/./,toupper(substr($i,1,1)),$i)}1')
-              
-              echo "* [$title]($file)" >> SUMMARY.md
-              echo "  - Added: $file"
-            done
-            
-            echo "✅ SUMMARY.md updated with ${#missing_files[@]} new file(s)"
-          else
-            echo "✅ All markdown files are already in SUMMARY.md"
+          # Report results
+          echo "✅ Files found in SUMMARY.md (${#found_files[@]}/$total_files):"
+          if [ ${#found_files[@]} -gt 0 ]; then
+            printf '  ✓ %s\n' "${found_files[@]}"
           fi
-      
-      - name: Commit changes
-        run: |
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
           
-          if git diff --quiet SUMMARY.md; then
-            echo "No changes to commit"
+          echo ""
+          
+          if [ ${#missing_files[@]} -eq 0 ]; then
+            echo "🎉 SUCCESS: All $total_files markdown files are referenced in SUMMARY.md"
+            exit 0
           else
-            git add SUMMARY.md
-            git commit -m "chore: auto-update SUMMARY.md with new pages"
-            git push
+            echo "❌ MISSING from SUMMARY.md (${#missing_files[@]}/$total_files):"
+            printf '  ✗ %s\n' "${missing_files[@]}"
+            echo ""
+            echo "Please add these files to SUMMARY.md"
+            exit 1
           fi
