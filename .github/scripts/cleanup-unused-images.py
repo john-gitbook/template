@@ -5,6 +5,12 @@ on:
     paths:
       - '**.md'
   workflow_dispatch:
+    inputs:
+      spell_check:
+        description: 'Run spell check on all markdown files'
+        required: false
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -16,6 +22,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       
       - name: Update SUMMARY.md
         run: |
@@ -24,15 +32,27 @@ jobs:
           
           echo "🔍 Scanning repository for markdown files..."
           
+          # Check if SUMMARY.md exists
+          if [ ! -f "SUMMARY.md" ]; then
+            echo "❌ SUMMARY.md not found! Creating one..."
+            echo "# Summary" > SUMMARY.md
+            echo "" >> SUMMARY.md
+          fi
+          
           # Find all .md files except SUMMARY.md and README.md
           all_md_files=$(find . -type f -name "*.md" \
             ! -path "./SUMMARY.md" \
             ! -path "./README.md" \
             ! -path "*/node_modules/*" \
             ! -path "*/.git/*" \
-            | sort)
+            2>/dev/null | sort)
           
-          total_files=$(echo "$all_md_files" | wc -l)
+          if [ -z "$all_md_files" ]; then
+            echo "⚠️  No markdown files found to process"
+            exit 0
+          fi
+          
+          total_files=$(echo "$all_md_files" | grep -c '^' || echo "0")
           echo "📄 Found $total_files markdown file(s) to check"
           
           # Read SUMMARY.md content
@@ -43,15 +63,16 @@ jobs:
           found_files=()
           
           # Check each .md file
-          for file in $all_md_files; do
+          while IFS= read -r file; do
+            [ -z "$file" ] && continue
             clean_path="${file#./}"
             
-            if echo "$summary_content" | grep -q "$clean_path"; then
+            if echo "$summary_content" | grep -qF "$clean_path"; then
               found_files+=("$clean_path")
             else
               missing_files+=("$clean_path")
             fi
-          done
+          done <<< "$all_md_files"
           
           echo "✅ Files already in SUMMARY.md: ${#found_files[@]}"
           echo "➕ Files to add: ${#missing_files[@]}"
@@ -85,22 +106,22 @@ jobs:
           while IFS= read -r line; do
             # Check if line contains a markdown link with .md extension
             if echo "$line" | grep -q '\[.*\](.*\.md)'; then
-              # Extract the title and path
-              if [[ $line =~ \[([^\]]+)\]\(([^\)]+)\) ]]; then
-                old_title="${BASH_REMATCH[1]}"
-                path="${BASH_REMATCH[2]}"
-                
+              # Extract the title and path using sed
+              title=$(echo "$line" | sed -n 's/.*\[\([^]]*\)\].*/\1/p')
+              path=$(echo "$line" | sed -n 's/.*](\([^)]*\)).*/\1/p')
+              
+              if [ -n "$title" ] && [ -n "$path" ]; then
                 # Capitalize first letter of each word in title
-                new_title=$(echo "$old_title" | awk '{for(i=1;i<=NF;i++)sub(/./,toupper(substr($i,1,1)),$i)}1')
+                new_title=$(echo "$title" | awk '{for(i=1;i<=NF;i++)sub(/./,toupper(substr($i,1,1)),$i)}1')
                 
-                # Get the indentation/prefix (*, -, numbers, spaces)
+                # Get the indentation/prefix
                 prefix=$(echo "$line" | sed 's/\[.*//')
                 
                 # Reconstruct the line with capitalized title
                 new_line="${prefix}[$new_title]($path)"
                 
-                if [ "$old_title" != "$new_title" ]; then
-                  echo "  ✓ Fixed: '$old_title' → '$new_title'"
+                if [ "$title" != "$new_title" ]; then
+                  echo "  ✓ Fixed: '$title' → '$new_title'"
                 fi
                 
                 echo "$new_line" >> "$temp_file"
@@ -118,6 +139,79 @@ jobs:
           
           echo ""
           echo "✅ SUMMARY.md updated successfully!"
+      
+      - name: Spell check markdown files
+        if: github.event.inputs.spell_check == 'true' || github.event_name == 'push'
+        run: |
+          echo "📖 Running spell check on markdown files..."
+          
+          # Install aspell
+          sudo apt-get update
+          sudo apt-get install -y aspell aspell-en
+          
+          # Find all markdown files
+          all_md_files=$(find . -type f -name "*.md" \
+            ! -path "*/node_modules/*" \
+            ! -path "*/.git/*" \
+            2>/dev/null)
+          
+          # Create custom dictionary for technical terms (add your own terms here)
+          cat > .aspell.en.pws << 'EOF'
+          personal_ws-1.1 en 0
+          GitBook
+          API
+          APIs
+          JSON
+          YAML
+          OAuth
+          SAML
+          SSO
+          Github
+          Markdown
+          HTTP
+          HTTPS
+          URL
+          URLs
+          README
+          EOF
+          
+          error_count=0
+          
+          # Check each file
+          while IFS= read -r file; do
+            [ -z "$file" ] && continue
+            
+            echo ""
+            echo "Checking: $file"
+            
+            # Extract text content (remove code blocks and inline code)
+            content=$(cat "$file" | \
+              sed '/```/,/```/d' | \
+              sed 's/`[^`]*`//g' | \
+              sed 's/\[.*\](.*)//g' | \
+              sed 's/^#.*//g')
+            
+            # Run spell check
+            misspelled=$(echo "$content" | aspell list --personal=.aspell.en.pws --lang=en | sort -u)
+            
+            if [ -n "$misspelled" ]; then
+              echo "  ⚠️  Potential spelling errors found:"
+              echo "$misspelled" | while read -r word; do
+                echo "    - $word"
+              done
+              error_count=$((error_count + 1))
+            else
+              echo "  ✓ No spelling errors found"
+            fi
+          done <<< "$all_md_files"
+          
+          echo ""
+          if [ $error_count -gt 0 ]; then
+            echo "⚠️  Spell check found potential errors in $error_count file(s)"
+            echo "Note: This is informational only and won't fail the workflow"
+          else
+            echo "✅ No spelling errors found in any files!"
+          fi
       
       - name: Commit changes
         run: |
