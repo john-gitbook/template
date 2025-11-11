@@ -1,0 +1,58 @@
+name: SUMMARY and Spell Check
+
+on:
+  push:
+    paths:
+      - '**.md'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  check-and-update:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Install aspell
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y aspell aspell-en
+      
+      - name: Run spell check
+        run: |
+          echo "==================== SPELL CHECK ===================="
+          find . -name "*.md" ! -path "*/node_modules/*" ! -path "*/.git/*" -type f | while read file; do
+            echo "Checking: $file"
+            cat "$file" | aspell list --lang=en | sort -u | head -20
+          done
+          echo "===================================================="
+      
+      - name: Update SUMMARY.md
+        run: |
+          echo "Updating SUMMARY.md..."
+          
+          if [ ! -f "SUMMARY.md" ]; then
+            echo "# Summary" > SUMMARY.md
+          fi
+          
+          find . -name "*.md" ! -path "./SUMMARY.md" ! -path "./README.md" ! -path "*/node_modules/*" ! -path "*/.git/*" -type f | sort | while read file; do
+            clean_path="${file#./}"
+            if ! grep -qF "$clean_path" SUMMARY.md; then
+              filename=$(basename "$file" .md)
+              title=$(echo "$filename" | sed 's/[-_]/ /g' | awk '{for(i=1;i<=NF;i++)sub(/./,toupper(substr($i,1,1)),$i)}1')
+              echo "* [$title]($clean_path)" >> SUMMARY.md
+              echo "Added: $clean_path"
+            fi
+          done
+      
+      - name: Commit if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --staged --quiet || git commit -m "Update SUMMARY.md"
+          git push || true
