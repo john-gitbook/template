@@ -12,5 +12,4 @@
 
 * [Page 1](page-1.md)
 
-## Auto-added pages
-* [Page 3](page-3.md)
+
