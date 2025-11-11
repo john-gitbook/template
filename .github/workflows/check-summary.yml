@@ -1,24 +1,37 @@
-name: Check SUMMARY.md Coverage
+name: Auto-update SUMMARY.md
 
 on:
   push:
     paths:
       - '**.md'
+  workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
-  check-summary:
+  update-summary:
     runs-on: ubuntu-latest
     
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       
-      - name: Check SUMMARY.md coverage
+      - name: Update SUMMARY.md
         run: |
           #!/bin/bash
           set -e
           
           echo "🔍 Scanning repository for markdown files..."
+          
+          # Check if SUMMARY.md exists
+          if [ ! -f "SUMMARY.md" ]; then
+            echo "❌ SUMMARY.md not found! Creating one..."
+            echo "# Summary" > SUMMARY.md
+            echo "" >> SUMMARY.md
+          fi
           
           # Find all .md files except SUMMARY.md and README.md
           all_md_files=$(find . -type f -name "*.md" \
@@ -26,52 +39,111 @@ jobs:
             ! -path "./README.md" \
             ! -path "*/node_modules/*" \
             ! -path "*/.git/*" \
-            | sort)
+            2>/dev/null | sort)
           
-          total_files=$(echo "$all_md_files" | wc -l)
-          echo "📄 Found $total_files markdown file(s) to check"
-          echo ""
-          
-          # Read SUMMARY.md content
-          if [ ! -f "SUMMARY.md" ]; then
-            echo "❌ SUMMARY.md not found in repository!"
-            exit 1
+          if [ -z "$all_md_files" ]; then
+            echo "⚠️  No markdown files found to process"
+            exit 0
           fi
           
+          total_files=$(echo "$all_md_files" | grep -c '^' || echo "0")
+          echo "📄 Found $total_files markdown file(s) to check"
+          
+          # Read SUMMARY.md content
           summary_content=$(cat SUMMARY.md)
           
-          # Track missing and found files
+          # Track missing files
           missing_files=()
           found_files=()
           
           # Check each .md file
-          for file in $all_md_files; do
-            # Remove leading ./ from path
+          while IFS= read -r file; do
+            [ -z "$file" ] && continue
             clean_path="${file#./}"
             
-            # Check if the file path appears in SUMMARY.md
-            if echo "$summary_content" | grep -q "$clean_path"; then
+            if echo "$summary_content" | grep -qF "$clean_path"; then
               found_files+=("$clean_path")
             else
               missing_files+=("$clean_path")
             fi
-          done
+          done <<< "$all_md_files"
           
-          # Report results
-          echo "✅ Files found in SUMMARY.md (${#found_files[@]}/$total_files):"
-          if [ ${#found_files[@]} -gt 0 ]; then
-            printf '  ✓ %s\n' "${found_files[@]}"
+          echo "✅ Files already in SUMMARY.md: ${#found_files[@]}"
+          echo "➕ Files to add: ${#missing_files[@]}"
+          
+          # Add missing files to SUMMARY.md
+          if [ ${#missing_files[@]} -gt 0 ]; then
+            echo ""
+            echo "📝 Adding missing files to SUMMARY.md:"
+            echo "" >> SUMMARY.md
+            echo "## Auto-added pages" >> SUMMARY.md
+            
+            for file in "${missing_files[@]}"; do
+              # Extract filename without extension for title
+              filename=$(basename "$file" .md)
+              # Convert hyphens/underscores to spaces and capitalize first letter of each word
+              title=$(echo "$filename" | sed 's/[-_]/ /g' | awk '{for(i=1;i<=NF;i++)sub(/./,toupper(substr($i,1,1)),$i)}1')
+              
+              echo "* [$title]($file)" >> SUMMARY.md
+              echo "  ✓ Added: $file as '$title'"
+            done
           fi
           
+          # Fix capitalization in existing entries
           echo ""
+          echo "🔤 Fixing capitalization in SUMMARY.md..."
           
-          if [ ${#missing_files[@]} -eq 0 ]; then
-            echo "🎉 SUCCESS: All $total_files markdown files are referenced in SUMMARY.md"
-            exit 0
+          # Create a temporary file
+          temp_file=$(mktemp)
+          
+          # Process SUMMARY.md line by line
+          while IFS= read -r line; do
+            # Check if line contains a markdown link with .md extension
+            if echo "$line" | grep -q '\[.*\](.*\.md)'; then
+              # Extract the title and path using sed
+              title=$(echo "$line" | sed -n 's/.*\[\([^]]*\)\].*/\1/p')
+              path=$(echo "$line" | sed -n 's/.*](\([^)]*\)).*/\1/p')
+              
+              if [ -n "$title" ] && [ -n "$path" ]; then
+                # Capitalize first letter of each word in title
+                new_title=$(echo "$title" | awk '{for(i=1;i<=NF;i++)sub(/./,toupper(substr($i,1,1)),$i)}1')
+                
+                # Get the indentation/prefix
+                prefix=$(echo "$line" | sed 's/\[.*//')
+                
+                # Reconstruct the line with capitalized title
+                new_line="${prefix}[$new_title]($path)"
+                
+                if [ "$title" != "$new_title" ]; then
+                  echo "  ✓ Fixed: '$title' → '$new_title'"
+                fi
+                
+                echo "$new_line" >> "$temp_file"
+              else
+                echo "$line" >> "$temp_file"
+              fi
+            else
+              # Keep non-link lines as-is
+              echo "$line" >> "$temp_file"
+            fi
+          done < SUMMARY.md
+          
+          # Replace original with fixed version
+          mv "$temp_file" SUMMARY.md
+          
+          echo ""
+          echo "✅ SUMMARY.md updated successfully!"
+      
+      - name: Commit changes
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          
+          if git diff --quiet SUMMARY.md; then
+            echo "✅ No changes needed - SUMMARY.md is up to date!"
           else
-            echo "❌ MISSING from SUMMARY.md (${#missing_files[@]}/$total_files):"
-            printf '  ✗ %s\n' "${missing_files[@]}"
-            echo ""
-            echo "Please add these files to SUMMARY.md"
-            exit 1
+            git add SUMMARY.md
+            git commit -m "chore: auto-update SUMMARY.md with new pages and fix capitalization"
+            git push
+            echo "✅ Changes committed and pushed!"
           fi
