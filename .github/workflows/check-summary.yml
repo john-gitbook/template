@@ -1,4 +1,4 @@
-name: Check SUMMARY.md Coverage
+name: Auto-update SUMMARY.md
 
 on:
   push:
@@ -6,14 +6,16 @@ on:
       - '**.md'
 
 jobs:
-  check-summary:
+  update-summary:
     runs-on: ubuntu-latest
     
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
       
-      - name: Check SUMMARY.md coverage
+      - name: Update SUMMARY.md with missing files
         run: |
           #!/bin/bash
           set -e
@@ -43,12 +45,38 @@ jobs:
             fi
           done
           
-          # Report results
-          if [ ${#missing_files[@]} -eq 0 ]; then
-            echo "✅ All markdown files are referenced in SUMMARY.md"
-            exit 0
+          # If there are missing files, add them to SUMMARY.md
+          if [ ${#missing_files[@]} -gt 0 ]; then
+            echo "📝 Adding missing files to SUMMARY.md:"
+            
+            # Append to SUMMARY.md
+            echo "" >> SUMMARY.md
+            echo "## Auto-added pages" >> SUMMARY.md
+            
+            for file in "${missing_files[@]}"; do
+              # Extract filename without extension for title
+              filename=$(basename "$file" .md)
+              # Convert hyphens/underscores to spaces and capitalize
+              title=$(echo "$filename" | sed 's/[-_]/ /g' | awk '{for(i=1;i<=NF;i++)sub(/./,toupper(substr($i,1,1)),$i)}1')
+              
+              echo "* [$title]($file)" >> SUMMARY.md
+              echo "  - Added: $file"
+            done
+            
+            echo "✅ SUMMARY.md updated with ${#missing_files[@]} new file(s)"
           else
-            echo "❌ The following files are missing from SUMMARY.md:"
-            printf '%s\n' "${missing_files[@]}"
-            exit 1
+            echo "✅ All markdown files are already in SUMMARY.md"
+          fi
+      
+      - name: Commit changes
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          
+          if git diff --quiet SUMMARY.md; then
+            echo "No changes to commit"
+          else
+            git add SUMMARY.md
+            git commit -m "chore: auto-update SUMMARY.md with new pages"
+            git push
           fi
