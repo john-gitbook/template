@@ -1,0 +1,54 @@
+name: Check SUMMARY.md Coverage
+
+on:
+  push:
+    paths:
+      - '**.md'
+
+jobs:
+  check-summary:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Check SUMMARY.md coverage
+        run: |
+          #!/bin/bash
+          set -e
+          
+          # Find all .md files except SUMMARY.md and README.md
+          all_md_files=$(find . -type f -name "*.md" \
+            ! -path "./SUMMARY.md" \
+            ! -path "./README.md" \
+            ! -path "*/node_modules/*" \
+            ! -path "*/.git/*" \
+            | sort)
+          
+          # Read SUMMARY.md content
+          summary_content=$(cat SUMMARY.md)
+          
+          # Track missing files
+          missing_files=()
+          
+          # Check each .md file
+          for file in $all_md_files; do
+            # Remove leading ./ from path
+            clean_path="${file#./}"
+            
+            # Check if the file path appears in SUMMARY.md
+            if ! echo "$summary_content" | grep -q "$clean_path"; then
+              missing_files+=("$clean_path")
+            fi
+          done
+          
+          # Report results
+          if [ ${#missing_files[@]} -eq 0 ]; then
+            echo "✅ All markdown files are referenced in SUMMARY.md"
+            exit 0
+          else
+            echo "❌ The following files are missing from SUMMARY.md:"
+            printf '%s\n' "${missing_files[@]}"
+            exit 1
+          fi

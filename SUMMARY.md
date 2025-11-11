@@ -7,4 +7,4 @@
 
 * [Editor](basics/editor.md)
 * [Images & media](basics/images-and-media.md)
-* [Version Control](version-control.md)
+* [Version Control](basics/version-control.md)
