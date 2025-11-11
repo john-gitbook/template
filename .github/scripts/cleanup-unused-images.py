@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - '**.md'
+  workflow_dispatch:
 
 permissions:
   contents: write
