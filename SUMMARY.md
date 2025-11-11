@@ -16,3 +16,6 @@
 
 ## Auto-added pages
 * [Page 3](page-3.md)
+
+## Auto-added pages
+* [Hello](.gitbook/includes/hello.md)
