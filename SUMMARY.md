@@ -11,3 +11,6 @@
 ***
 
 * [Page 1](page-1.md)
+
+## Auto-added pages
+* [Page 2](page-2.md)
