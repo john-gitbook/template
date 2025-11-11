@@ -14,8 +14,6 @@ In the Version history of a space, you can see a list of all the actions that ch
 * When someone merged a [change request](https://app.gitbook.com/s/NkEGS7hzeqa35sMXQZ4X/collaboration/change-requests).
 * When someone performed a [Git Sync](https://app.gitbook.com/s/NkEGS7hzeqa35sMXQZ4X/getting-started/git-sync) operation.
 
-### View historical versions of content <a href="#view-historical-versions-of-content" id="view-historical-versions-of-content"></a>
-
 To view past versions of your content and see the changes that were made, click the **Version history** button in the [space header](https://app.gitbook.com/s/NkEGS7hzeqa35sMXQZ4X/resources/gitbook-ui#space-header), or open the **Actions menu** next to the space or change request title and choose **Version history**.Click on any item in the list to see how your content looked at the point this change was made. This is very similar to how you view [change requests](https://app.gitbook.com/s/NkEGS7hzeqa35sMXQZ4X/collaboration/change-requests).
 
 ### Show changes <a href="#show-changes" id="show-changes"></a>
