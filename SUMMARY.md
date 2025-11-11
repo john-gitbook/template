@@ -5,7 +5,7 @@
 ## Basics
 
 * [Editor](basics/editor.md)
-* [Images & media](basics/images-and-media.md)
+* [Images & Media](basics/images-and-media.md)
 * [Version Control](basics/version-control.md)
 
 ***
