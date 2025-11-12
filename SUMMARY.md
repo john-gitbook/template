@@ -12,10 +12,14 @@
 
 * [Page 1](page-1.md)
 
-
-
 ## Auto-added pages
+
 * [Page 3](page-3.md)
 
 ## Auto-added pages
+
 * [Hello](.gitbook/includes/hello.md)
+
+***
+
+* [Page 2](page-2.md)
