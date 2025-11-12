@@ -24,3 +24,6 @@
 
 * [Page 2](page-2.md)
 * [Page 4](page-4.md)
+
+## Auto-added pages
+* [Hello (1)](.gitbook/includes/hello (1)
