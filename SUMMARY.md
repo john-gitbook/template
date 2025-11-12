@@ -16,3 +16,7 @@
 ## Auto-added pages
 * [Hello](.gitbook/includes/hello.md)
 * [Untitled](.gitbook/includes/untitled.md)
+
+## Auto-added pages
+* [Hello (1)](.gitbook/includes/hello (1)
+* [Untitled (1)](.gitbook/includes/untitled (1)
