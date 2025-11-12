@@ -1,2 +1,0 @@
-page
-heuro world!
