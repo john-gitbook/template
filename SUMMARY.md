@@ -13,10 +13,5 @@
 * [Page 1](page-1.md)
 * [Page 2](page-2.md)
 
-## Auto-added pages
-* [Hello](.gitbook/includes/hello.md)
-* [Untitled](.gitbook/includes/untitled.md)
 
-## Auto-added pages
-* [Hello (1)](.gitbook/includes/hello (1)
-* [Untitled (1)](.gitbook/includes/untitled (1)
+
