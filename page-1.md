@@ -4,7 +4,7 @@
 
 {% stepper %}
 {% step %}
-### Add a stepper blck
+#### Add a stepper blck
 
 To add a stepper block, hit `/` on an empty line or click the `+` on the left of the editor and select **Stepper** from the insert menu.
 
@@ -14,19 +14,17 @@ here is a hint block within a stepper
 {% endstep %}
 
 {% step %}
-### Add some content
+#### Add some content
 
 Once you’ve inserted your stepper block, you can start adding content to it — including code blocks, drawings, images and much more.
 
 {% hint style="warning" %}
 More information is added in this block
 {% endhint %}
-
-
 {% endstep %}
 
 {% step %}
-### Add more steps
+#### Add more steps
 
 Click the `+` below the step numbers or hit `Enter` twice to add another step to your stepper block. You can remove or change the style of the step header or step body if you wish.
 
@@ -41,7 +39,7 @@ print("Hello, World!")
 {% endstep %}
 
 {% step %}
-### Another steps
+#### Another steps
 
 Hi there
 {% endstep %}
