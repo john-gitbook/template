@@ -1,6 +1,3 @@
 # Page 2
 
-{% file src=".gitbook/assets/sample_document.pdf" %}
-
-{% include ".gitbook/includes/untitled.md" %}
-
+{% embed url="https://docs.google.com/document/d/1khaZvzcY2PjsP8M1FVKzUbh0Cm4dmuj8kRLZbXrewSA/edit?usp=sharing" %}
