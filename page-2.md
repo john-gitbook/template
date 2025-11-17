@@ -1,3 +1,9 @@
 # Page 2
 
-{% embed url="https://docs.google.com/document/d/1khaZvzcY2PjsP8M1FVKzUbh0Cm4dmuj8kRLZbXrewSA/edit?usp=sharing" %}
+
+
+{% include ".gitbook/includes/2025-11-04 (2).md" %}
+
+{% include ".gitbook/includes/test-version-history (1).md" %}
+
+{% include ".gitbook/includes/2025-11-03.md" %}
