@@ -1,10 +1,13 @@
 ---
 icon: pencil
+cover: ../.gitbook/assets/Twitter_Banner_1990x480.png
+coverY: 0
+coverHeight: 335
 ---
 
 # Editor
 
-GitBook has a powerful block-based editor that allows you to seamlessly create, update, and enhance your content.
+GitBook has a powerful block-based editor that allows you to seamlessly create, update, and enhance your content.   &#x20;
 
 ### Writing content
 
