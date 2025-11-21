@@ -2,7 +2,7 @@
 icon: pencil
 cover: ../.gitbook/assets/Twitter_Banner_1990x480.png
 coverY: 0
-coverHeight: 335
+coverHeight: 266
 ---
 
 # Editor
