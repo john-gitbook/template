@@ -1,6 +1,7 @@
-{% tabs %}
-{% tab title="Verbose options" %}
+# Page 1
 
+{% tabs %}
+{% tab title="Liquid" %}
 ```liquid
 {% action "cache" %}
   {
@@ -11,6 +12,5 @@
   }
 {% endaction %}
 ```
-
 {% endtab %}
-
+{% endtabs %}
