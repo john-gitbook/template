@@ -6,6 +6,7 @@
 
 {% tabs %}
 {% tab title="Verbose options" %}
+
 ```liquid
 {% action "cache" %}
   {
@@ -17,4 +18,5 @@
   }
 {% endaction %}
 ```
+
 {% endtab %}
