@@ -1,14 +1,16 @@
 ---
+hidden: true
+noIndex: true
 icon: code-fork
 ---
 
 # Version Control
 
-Keep track of changes, hello world! roll back to a previous version and moreYou can easily monitor all the changes people have made to your content using to the **Version history** side panel.&#x20;
+Keep track of changes, hello world! roll back to a previous version and moreYou can easily monitor all the changes people have made to your content using to the **Version history** side panel.
 
 ### Version <a href="#see-the-activity-of-a-specific-draft" id="see-the-activity-of-a-specific-draft"></a>
 
-In the Version history of a space, you can see a list of all the actions that changed the content within it. These include: &#x20;
+In the Version history of a space, you can see a list of all the actions that changed the content within it. These include:
 
 * When someone made [live edits](https://app.gitbook.com/s/NkEGS7hzeqa35sMXQZ4X/collaboration/live-edits) to the space.
 * When someone merged a [change request](https://app.gitbook.com/s/NkEGS7hzeqa35sMXQZ4X/collaboration/change-requests).
