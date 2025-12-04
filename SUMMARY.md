@@ -67,3 +67,4 @@
 
 *
 * [Store #GET /store/orders](https://app.gitbook.com/s/GT1oKatlH82jv9E3rOZl/store#get-store-orders)
+*
