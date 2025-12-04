@@ -65,7 +65,6 @@
 ***
 
 * [Quickstart](README.md)
-* [Petstore #Production](petstore-production.md)
 *
 *
-*
+* [Pets #GET /pets](/broken/pages/c76f3c163cde59a8339b5a31db9802afe05f0329#get-pets)
