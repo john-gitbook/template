@@ -1,7 +1,6 @@
 # Table of contents
 
 * [Quickstart](README.md)
-*
 * ```yaml
   props:
     models: true
@@ -18,10 +17,10 @@
 
 * [Page Title 1](group-1/page-title-1.md)
 * ```yaml
-  type: builtin:openapi
   props:
     models: true
     downloadLink: true
+  type: builtin:openapi
   dependencies:
     spec:
       ref:
@@ -33,10 +32,10 @@
 
 * [Page Title 2](group-2/page-title-2.md)
 * ```yaml
-  type: builtin:openapi
   props:
     models: true
     downloadLink: true
+  type: builtin:openapi
   dependencies:
     spec:
       ref:
@@ -48,10 +47,10 @@
 
 * [Page Title 3](group-3/page-title-3.md)
 * ```yaml
-  type: builtin:openapi
   props:
     models: true
     downloadLink: true
+  type: builtin:openapi
   dependencies:
     spec:
       ref:
@@ -65,6 +64,6 @@
 
 ***
 
+* [Quickstart](README.md)
 *
-* [Store #GET /store/orders](https://app.gitbook.com/s/GT1oKatlH82jv9E3rOZl/store#get-store-orders)
-*
+* [Petstore #Production](/broken/pages/cf0794fb379305649793eecae7f610b93e3b9ef6#production)
