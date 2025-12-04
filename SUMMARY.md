@@ -58,13 +58,13 @@
         spec: gitbook-petstore
   ```
 
-## Group 4
+## Links to API Pages
 
-* [Page Title 4](group-4/page-title-4.md)
-
-***
-
-* [Quickstart](README.md)
 *
 *
-* [Pets #GET /pets](/broken/pages/c76f3c163cde59a8339b5a31db9802afe05f0329#get-pets)
+
+## Links to endpoints
+
+* [Pets #GET /pets](/broken/pages/56a42c0f98aaed91f53330e1088215f6ca34c2f6#get-pets)
+* [Store #GET /store/orders](/broken/pages/d6e231535e4d77359b72cf5a17dfb3785a355c88#get-store-orders)
+* [Pets #GET /pets/{petId}](/broken/pages/446ed424e9b229a0553a1754ee94badedbc1d365#get-pets-petid)
