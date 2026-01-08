@@ -49,6 +49,8 @@ Missive does not offer a way to manually reorder email accounts, but you can cus
 
 ### Sidebar
 
+&#x200B;
+
 <details>
 <summary>What shows up in my Inbox?</summary>
 Your **Inbox** contains everything that needs your attention:
