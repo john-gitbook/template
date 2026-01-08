@@ -11,51 +11,28 @@ Welcome to the GitBook Starter Template! Here you'll get an overview of all the 
 You'll see some of the best parts of GitBook in action — and find help on how you can turn this template into your own.
 
 <details>
-
 <summary>hello world</summary>
-
- shows what needs your attention now. **All** shows your complete history across snoozed conversations. If you can't find something, check All.
-
-</details> 
-
-
-<details>
-<summary>hello world</summary>
-
 shows what needs your attention now. **All** shows your complete history across snoozed conversations. If you can't find something, check All.
-
 </details>
-
 <details>
-  
+<summary>hello world</summary>
+shows what needs your attention now. **All** shows your complete history across snoozed conversations. If you can't find something, check All.
+</details>
+<details>
 <summary>heading 1.1</summary>
-
 content 1
-
 </details>
-
 <details>
-
 <summary>heading 2?</summary>
-
 content 2
-
 </details>
-
 <details>
-
 <summary>heading 3</summary>
-
 content 3
-
 </details>
-
 <details>
-
 <summary>this is a title</summary>
-
 this is the content
-
 </details>
 
 ### Jump right in
