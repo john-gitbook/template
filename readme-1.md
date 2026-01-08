@@ -12,7 +12,7 @@ You'll see some of the best parts of GitBook in action — and find help on how 
 
 <details>
 
-<summary>heading 1</summary>
+<summary>heading 1.1</summary>
 
 content 1
 
@@ -20,7 +20,7 @@ content 1
 
 <details>
 
-<summary>heading 2</summary>
+<summary>heading 2?</summary>
 
 content 2
 
