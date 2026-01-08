@@ -12,7 +12,7 @@ You'll see some of the best parts of GitBook in action — and find help on how 
 
 <details>
 
-<summary>Whats the difference between Inbox and All?</summary>
+<summary>hello world</summary>
 
  shows what needs your attention now. **All** shows your complete history across snoozed conversations. If you can't find something, check All.
 
