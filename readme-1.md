@@ -46,7 +46,6 @@ this is the content
 
 <details>
 <summary>What shows up in my Inbox?</summary>
-
 Your **Inbox** contains everything that needs your attention:
 
 * An email arrives in one of your accounts
@@ -60,13 +59,11 @@ Your **Inbox** contains everything that needs your attention:
 
 <details>
 <summary>What's the difference between Inbox and All?</summary>
-
 **Inbox** shows what needs your attention now. **All** shows your complete history across every channel: archived conversations, chats, drafts, sent items, and snoozed conversations. If you can't find something, check All.
 </details>
 
 <details>
 <summary>What is a Team Inbox?</summary>
-
 A Team Inbox is a shared space where messages from shared accounts (email, SMS, WhatsApp, etc.) arrive. Unlike your personal Inbox, conversations in a Team Inbox aren't assigned to anyone yet. They wait there until someone claims or assigns them.
 
 Once assigned, the conversation moves to the assignee's Inbox and appears in the team's Tasks view. Archiving from a Team Inbox removes the conversation for everyone on the team.
