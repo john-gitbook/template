@@ -44,5 +44,5 @@ Your new section will appear in the sidebar, ready for you to organize items int
 Missive does not offer a way to manually reorder email accounts, but you can customize the description of each account in your **Accounts** settings, as shown here:
 </details>
 
-# Interface FAQ
+
 
