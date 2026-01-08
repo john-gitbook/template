@@ -49,7 +49,6 @@ Missive does not offer a way to manually reorder email accounts, but you can cus
 
 ### Sidebar
 
-
 <details>
 <summary>What shows up in my Inbox?</summary>
 Your **Inbox** contains everything that needs your attention:
@@ -91,4 +90,3 @@ Your new section will appear in the sidebar, ready for you to organize items int
 <summary>Can I reorder account sub-mailboxes in the sidebar?</summary>
 Missive does not offer a way to manually reorder email accounts, but you can customize the description of each account in your **Accounts** settings, as shown here:
 </details>
-
