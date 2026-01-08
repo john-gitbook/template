@@ -6,6 +6,38 @@ coverY: 0
 
 # Welcome
 
+<details>
+
+<summary>What shows up in my Inbox?</summary>
+
+Your **Inbox** contains everything that needs your attention:
+
+* An email arrives in one of your accounts
+* A colleague @mentions you in a conversation
+* A colleague invites you to a conversation
+* A colleague posts in a conversation you're watching
+* A colleague assigns you to a conversation
+* A closed conversation assigned to you is reopened
+* A snoozed conversation comes due
+
+</details>
+
+<details>
+
+<summary>What shows up in my Inbox?</summary>
+
+Your **Inbox** contains everything that needs your attention:
+
+* An email arrives in one of your accounts
+* A colleague @mentions you in a conversation
+* A colleague invites you to a conversation
+* A colleague posts in a conversation you're watching
+* A colleague assigns you to a conversation
+* A closed conversation assigned to you is reopened
+* A snoozed conversation comes due
+
+</details>
+
 Welcome to the GitBook Starter Template! Here you'll get an overview of all the amazing features GitBook offers to help you build beautiful, interactive documentation.
 
 You'll see some of the best parts of GitBook in action — and find help on how you can turn this template into your own.
