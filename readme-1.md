@@ -20,14 +20,11 @@ You'll see some of the best parts of GitBook in action — and find help on how 
 
 
 <details>
+<summary>hello world</summary>
 
-<summary>Whats the difference between Inbox and All?</summary>
-
-**Inbox** shows what needs your attention now. **All** shows your complete history across snoozed conversations. If you can't find something, check All.
+shows what needs your attention now. **All** shows your complete history across snoozed conversations. If you can't find something, check All.
 
 </details>
-
-<details>
   
 <summary>heading 1.1</summary>
 
