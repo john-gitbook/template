@@ -45,4 +45,5 @@ Missive does not offer a way to manually reorder email accounts, but you can cus
 </details>
 
 
-any text
+# Interface FAQ
+
