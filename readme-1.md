@@ -18,7 +18,6 @@ You'll see some of the best parts of GitBook in action — and find help on how 
 
 </details> 
 
-<details>
 
 <details>
 <summary>What's the difference between Inbox and All?</summary>
