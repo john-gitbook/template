@@ -5,14 +5,7 @@
 
 <details>
 <summary>What shows up in my Inbox?</summary>
-Your **Inbox** contains everything that needs your attention:
-* An email arrives in one of your accounts
-* A colleague @mentions you in a conversation
-* A colleague invites you to a conversation
-* A colleague posts in a conversation you're watching
-* A colleague assigns you to a conversation
-* A closed conversation assigned to you is reopened
-* A snoozed conversation comes due
+nothing
 </details>
 
 <details>
