@@ -1,7 +1,7 @@
 # Table of contents
 
 * [Quickstart](README.md)
-* [Page 2](page-2.md)
+* [Glossary](glossary.md)
 * [Welcome](readme-1.md)
 
 ## Basics
