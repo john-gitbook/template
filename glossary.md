@@ -6,4 +6,4 @@ GitBook
 
 House
 
-Link to[ page 1](/broken/pages/yY8cpem9YLeZbLaqvlmb)
+Link to [Welcome](readme-1.md)
