@@ -6,4 +6,4 @@ GitBook
 
 House
 
-Link to[ page 1](page-1.md)
+Link to[ page 1](/broken/pages/yY8cpem9YLeZbLaqvlmb)
