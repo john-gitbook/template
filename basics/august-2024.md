@@ -37,9 +37,11 @@ This release introduces the **Access Logging** feature in Managed Network Load B
 {% hint style="success" %} 
 **August 22**
 
-New capabilities have been added to the Managed Application Load Balancer: <br>
- [<mark style="color:blue;">Configure gRPC Support</mark>](../../../network-services/application-load-balancer/how-tos/configure-grpc.md) <br>
- [<mark style="color:blue;">Configure WebSocket Support</mark>](../../../network-services/application-load-balancer/how-tos/configure-websocket.md) <br>
+New capabilities have been added to the Managed Application Load Balancer:
+
+[<mark style="color:blue;">Configure gRPC Support</mark>](../../../network-services/application-load-balancer/how-tos/configure-grpc.md)
+
+[<mark style="color:blue;">Configure WebSocket Support</mark>](../../../network-services/application-load-balancer/how-tos/configure-websocket.md)
 These enhancements provide comprehensive instructions for setting up gRPC that enables users to define service methods and messages in a language-agnostic way, making it easy to create APIs that work seamlessly across different platforms and setting up WebSocket support, a communication protocol that provides full-duplex communication channels over a single TCP connection.
 
 {% endhint %}
@@ -54,7 +56,7 @@ This release introduces **Monitoring Service**. IONOS Cloud introduces the Monit
 
 ### [<mark style="color:blue;">**Private Container Registry IP ACLs**</mark>](../../../containers/private-container-registry/api-howtos/create_registry.md)
 
-{% hint style="success" %} 
+{% hint style="success" %}
 **August 16**
 
 The Private Container Registry now supports IP Access Control Lists (IP ACLs), offering enhanced security and granular access control. This feature allows you to specify IP subnets permitted to access your registry, limiting access to trusted sources within your network. IP ACLs are easy to configure via the API with the `apiSubnetAllowList` parameter. Once configured, access attempts from outside the allowed subnets are immediately blocked, ensuring real-time protection without disrupting authorized users.
