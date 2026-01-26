@@ -42,6 +42,7 @@ New capabilities have been added to the Managed Application Load Balancer:
 [<mark style="color:blue;">Configure gRPC Support</mark>](../../../network-services/application-load-balancer/how-tos/configure-grpc.md)
 
 [<mark style="color:blue;">Configure WebSocket Support</mark>](../../../network-services/application-load-balancer/how-tos/configure-websocket.md)
+
 These enhancements provide comprehensive instructions for setting up gRPC that enables users to define service methods and messages in a language-agnostic way, making it easy to create APIs that work seamlessly across different platforms and setting up WebSocket support, a communication protocol that provides full-duplex communication channels over a single TCP connection.
 
 {% endhint %}
