@@ -14,6 +14,8 @@
 
 * [Page 1](page-1.md)
 * [august](basics/august-2024.md)
+* [test-1](basics/create-dns-record.md)
+* [test-2](basics/cloud-api-sdks.md)
 
 ## Auto-added pages
 
