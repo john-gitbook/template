@@ -34,7 +34,7 @@ This release introduces the **Access Logging** feature in Managed Network Load B
 {% endhint %}
 
 ### [<mark style="color:blue;">**gRPC Support**</mark>](../../../network-services/application-load-balancer/how-tos/configure-grpc.md) and [<mark style="color:blue;">**WebSocket Support**</mark>](../../../network-services/application-load-balancer/how-tos/configure-websocket.md)
-{% hint style="success" %} 
+{% hint style="success" %}
 **August 22**
 
 New capabilities have been added to the Managed Application Load Balancer:
@@ -105,7 +105,7 @@ This is to inform you that Managed Kubernetes version 1.27 will reach its end of
 
 ### [<mark style="color:blue;">**Auto-Renewable SSL Certificate Support**</mark>](../../../security/certificate-manager/README.md)
 
-{% hint style="success" %} 
+{% hint style="success" %}
 **August 2**
 
 The Certificate Manager now supports the auto-renew of SSL certificates via the [<mark style="color:blue;">API</mark>](https://api.ionos.com/docs/certificatemanager/v2/). With this function, the certificate manager automatically renews the certificate before it expires. The renewed certificate is also available in the DCD to use them. This feature is currently supported only via the API and available on a request basis. To access this feature, please contact your sales representative or [<mark style="color:blue;">IONOS Cloud Support</mark>](https://docs.ionos.com/support/general-information/contact-information).
@@ -113,7 +113,7 @@ The Certificate Manager now supports the auto-renew of SSL certificates via the 
 
 ### [<mark style="color:blue;">**Network File Storage (NFS) Volumes for Kubernetes**</mark>](../../../containers/managed-kubernetes/how-tos/mount-an-nfs-volume.md)
 
-{% hint style="success" %} 
+{% hint style="success" %}
 **August 1**
 
 IONOS releases NFS Volumes support for Kubernetes. This feature allows the integration of IONOS Network File Storage (NFS) with Kubernetes clusters, mounting NFS volumes as PVCs in the cluster. Network File Storage is initially available only in the German data centers (Frankfurt and Berlin), and will be gradually rolled out to all locations. 
@@ -153,7 +153,7 @@ It is currently available on a request basis. To access this product, please con
 **August 1**
 
 IONOS DBaaS provides support for **In-Memory DB** instances and offers resources such as CPU cores and RAM size (GB) to create In-Memory DB instances. Additionally, the instance facilitates backup via snapshots and the option to recover data, making them highly reliable. It also facilitates cloud-based In-Memory DB instance patching and scalability.
-{% endhint %} 
+{% endhint %}
 
 ### [<mark style="color:blue;">**CDN**</mark>](../../../network-services/cdn/README.md)
 {% hint style="success" %}
