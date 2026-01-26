@@ -13,6 +13,7 @@
 ***
 
 * [Page 1](page-1.md)
+* [august](basics/august-2024.md)
 
 ## Auto-added pages
 
