@@ -68,7 +68,11 @@ Our current IPSec implementation supports PSK (which is expected to support cert
 
 {% tabs %}
 {% tab title="Linux" %}
-Execute either of these commands: \`\`\`bash openssl rand -base64 48 \`\`\`
+Execute either of these commands:
+
+```bash
+openssl rand -base64 48
+```
 
 ```bash
 head -c 32 /dev/urandom | base64 
@@ -77,7 +81,9 @@ head -c 32 /dev/urandom | base64
 {% endtab %}
 
 {% tab title="Windows" %}
-\`\`\`bash $b = New-Object byte\[] 32; (New-Object System.Security.Cryptography.RNGCryptoServiceProvider).GetBytes($b); \[System.Convert]::ToBase64String($b) | Set-Content -Path .\psk.txt -Encoding ASCII \`\`\`
+```bash
+$b = New-Object byte[] 32; (New-Object System.Security.Cryptography.RNGCryptoServiceProvider).GetBytes($b); [System.Convert]::ToBase64String($b) | Set-Content -Path .\psk.txt -Encoding ASCII
+```
 {% endtab %}
 {% endtabs %}
 
@@ -117,19 +123,26 @@ This will need to be repeated for both sites, referring to the table of configur
 
 {% tabs %}
 {% tab title="Properties" %}
-Complete the properties before proceeding: | \*\*Components\*\* | \*\*Description\*\* | \*\*Example\*\* | |-----------------|-----------------|-----------------| | \*\*Name\*\* | A descriptive name for the gateway instance, this does not need to be globally unique. Restricted to 255 characters. | \`vdc-to-vdc\` | | \*\*Location\*\* | A list of available locations for VPN Gateway configuration. | \`ionos-cloud-txl\` | | \*\*IP Address\*\* | A list of available public IPv4 addresses. | \`203.0.113.10\` | | \*\*Description\*\* | More descriptive text for the gateway, limited to 1024 characters. | \`VPN Gateway for creating an IPSec Tunnel between VDCs.\` |
+Complete the properties before proceeding:
+
+| **Components** | **Description** | **Example** |
+| --- | --- | --- |
+| **Name** | A descriptive name for the gateway instance, this does not need to be globally unique. Restricted to 255 characters. | `vdc-to-vdc` |
+| **Location** | A list of available locations for VPN Gateway configuration. | `ionos-cloud-txl` |
+| **IP Address** | A list of available public IPv4 addresses. | `203.0.113.10` |
+| **Description** | More descriptive text for the gateway, limited to 1024 characters. | `VPN Gateway for creating an IPSec Tunnel between VDCs.` |
 
 ![Define properties](https://3040852435-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FEpuEvuLJIyhyeRGhmrv1%2Fuploads%2Fgit-blob-cdb807bbf58af43b8f7e8ac5218b0b622b84a73a%2Ftutorial-ipsec-vdc-vdc-properties.png?alt=media)
 {% endtab %}
 
 {% tab title="VPN Tier" %}
-The \*\*Enhanced VPN\*\* tier is selected by default. The number of LANs and tunnels or peers differ for each tier. You can also enable \*\*High Availability\*\* for a chosen tier, allowing VMs to operate in an active-passive mode. It minimizes downtime during a failover and ensures an uninterrupted connection.
+The **Enhanced VPN** tier is selected by default. The number of LANs and tunnels or peers differ for each tier. You can also enable **High Availability** for a chosen tier, allowing VMs to operate in an active-passive mode. It minimizes downtime during a failover and ensures an uninterrupted connection.
 
 {% hint style="info" %}
 **Note:** You can only upgrade the tier or switch between High Availability (HA) and non-HA variants during editing.
 {% endhint %}
 
-!\[Select a tier]\(../../images/vpn-gateway/tutorial-ipsec-vdc-vdc-vpn-tier.png)
+![Select a tier](../../images/vpn-gateway/tutorial-ipsec-vdc-vdc-vpn-tier.png)
 {% endtab %}
 
 {% tab title="Protocol" %}
@@ -258,7 +271,10 @@ Configure the subnets in CIDR format, which are permitted to connect to the tunn
 **Note:** You may use `0.0.0.0/0` to permit any network; however, one site should explicitly define the network CIDRs permitted. Using `0.0.0.0/0` on both VPN gateways will result in broken routing.
 {% endhint %}
 
-\| \*\*Components\*\* | \*\*Description\*\* | \*\*Example\*\* | | ---| --- | --- | | \*\*Cloud Network CIDRs\*\* | Network addresses on the cloud side that are permitted to connect to the tunnel. | \`192.168.1.0/24\` | | \*\*Peer Network CIDRs\*\* | Network addresses on the peer side that are permitted to connect to the tunnel. | \`192.168.2.0/24\` |
+| **Components** | **Description** | **Example** |
+| --- | --- | --- |
+| **Cloud Network CIDRs** | Network addresses on the cloud side that are permitted to connect to the tunnel. | `192.168.1.0/24` |
+| **Peer Network CIDRs** | Network addresses on the peer side that are permitted to connect to the tunnel. | `192.168.2.0/24` |
 
 ![Configure PSK](https://3040852435-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FEpuEvuLJIyhyeRGhmrv1%2Fuploads%2Fgit-blob-348ca546a5e373d240bd9b3f9f265c155d78b1d0%2Ftutorial-ipsec-vdc-vdc-network-cidr.png?alt=media)
 {% endtab %}
@@ -336,7 +352,10 @@ Configure the subnets in CIDR format, which are permitted to connect to the tunn
 **Note:** You may use `0.0.0.0/0` to permit any network; however, one site should explicitly define the network CIDRs permitted. Using `0.0.0.0/0` on both VPN gateways will result in broken routing.
 {% endhint %}
 
-\| \*\*Components\*\* | \*\*Description\*\* | \*\*Example\*\* | |-----------------|-----------------|-----------------| |\*\*Cloud Network CIDRs\*\* | Network addresses on the cloud side that are permitted to connect to the tunnel. | \`192.168.2.0/24\` | |\*\*Peer Network CIDRs\*\* | Network addresses on the peer side that are permitted to connect to the tunnel. | \`192.168.1.0/24\` |
+| **Components** | **Description** | **Example** |
+| --- | --- | --- |
+| **Cloud Network CIDRs** | Network addresses on the cloud side that are permitted to connect to the tunnel. | `192.168.2.0/24` |
+| **Peer Network CIDRs** | Network addresses on the peer side that are permitted to connect to the tunnel. | `192.168.1.0/24` |
 
 ![Configure PSK](https://3040852435-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FEpuEvuLJIyhyeRGhmrv1%2Fuploads%2Fgit-blob-348ca546a5e373d240bd9b3f9f265c155d78b1d0%2Ftutorial-ipsec-vdc-vdc-network-cidr.png?alt=media)
 {% endtab %}
@@ -357,7 +376,7 @@ Currently, it is impossible to automate the addition of routes to LAN hosts to r
 
 <summary><strong>Step 1: Establish a console session to the LAN host(s)</strong></summary>
 
-We will use the web console to test connectivity for the LAN hosts without internet access. Open a console session and ping the LAN address assigned to the VPN Gateway, `192.168.1.5`. Begin by pinging the IP address:<br>
+We will use the web console to test connectivity for the LAN hosts without internet access. Open a console session and ping the LAN address assigned to the VPN Gateway, `192.168.1.5`. Begin by pinging the IP address:
 
 ```bash
 root@berlinlanhost1:~# ping -c 3 192.168.1.5 
@@ -394,7 +413,7 @@ We cannot ping hosts in the `ionos-cloud-lhr` region because those servers do no
 
 <summary><strong>Step 1: Establish a console session to the LAN host(s)</strong></summary>
 
-We will use the web console to test connectivity for the LAN hosts that does not have an internet access. Open a console session and ping the LAN address assigned to the VPN Gateway, `192.168.2.5`. Begin by pinging the IP address:<br>
+We will use the web console to test connectivity for the LAN hosts that does not have an internet access. Open a console session and ping the LAN address assigned to the VPN Gateway, `192.168.2.5`. Begin by pinging the IP address:
 
 ```bash
 root@berlinlanhost1:~# ping -c 3 192.168.2.5 
