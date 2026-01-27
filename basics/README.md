@@ -138,6 +138,7 @@ pip install tensorflow
             <td><mark style="color:blue;"><strong>Delete a Cloud GPU VM</strong></mark></td>
             <td>Learn how to delete a Cloud GPU VM.</td>
             <td><a href="delete-cloud-gpu-vm.md">delete-cloud-gpu-vm</a></td>
+        </tr>
     </tbody>
 </table>
 
