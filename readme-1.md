@@ -2,17 +2,9 @@
 icon: hand-wave
 ---
 
-# Welcome change
+# Welcome
 
 ### Sidebar
-
-<details>
-
-<summary>What shows up in my Inbox?</summary>
-
-nothing
-
-</details>
 
 <details>
 

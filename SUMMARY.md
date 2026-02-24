@@ -1,8 +1,8 @@
 # Table of contents
 
-* [Quickstart](README.md)
-* [Page 2](page-2.md)
+* [This is a private page](README.md)
 * [Welcome](readme-1.md)
+* [Quickstart](<README (1).md>)
 
 ## Basics
 
