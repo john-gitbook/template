@@ -3,6 +3,7 @@
 * [This is a private page](README.md)
 * [Welcome](readme-1.md)
 * [Quickstart](<README (1).md>)
+* [Page 2](page-2.md)
 
 ## Basics
 
