@@ -4,6 +4,7 @@
 * [Welcome](readme-1.md)
 * [Quickstart](<README (1).md>)
 * [Page 2](page-2.md)
+* [Page 3](page-3.md)
 
 ## Basics
 
