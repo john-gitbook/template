@@ -1100,7 +1100,7 @@ The change strengthened Apple’s vertical integration. The company now designs 
 
 Apple increasingly presents privacy as a product principle. The company has added controls for app tracking, permissions, encrypted communications, and on-device processing. It argues that personal data should not become a company’s primary business model.
 
-In 2021, App Tracking Transparency required iPhone and iPad apps to request permission before tracking users across other companies’ apps and websites. The policy affected advertising businesses that relied on cross-app data collection.
+In 2021, App Tracking Transparency required iPhone and iPad apps to request permission before tracking users across other companies’ apps and websites. The policy affected advertising businesses that relied on cross-app data collection. oidjh
 
 Apple’s privacy claims also attract scrutiny. Critics examine how Apple’s own services use data, how platform rules affect competitors, and how privacy features operate in practice. Privacy is both a technical design question and a policy choice.
 
