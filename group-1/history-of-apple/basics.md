@@ -20,7 +20,7 @@ Cloud GPU VM is not activated automatically to ensure the configuration matches 
 
 Cloud GPU VMs are available in preconfigured sizes. Select a template that fits best to your needs and matches your contract's resource limits, which will be adjusted as part of the access enablement process. It is not possible to change the size of a Cloud GPU VM instance once it has been provisioned.
 
-* [<mark style="color:blue;">List all Cloud GPU VM templates</mark>](retrieve-template-list.md).
+* [<mark style="color:blue;">List all Cloud GPU VM templates</mark>](https://github.com/john-gitbook/template/blob/main/basics/retrieve-template-list.md).
 * Review Cloud GPU VM template specifications to select the appropriate template for your needs.
 * Use the template `UUID` to make an API request call for creating a new Cloud GPU VM.
 {% endstep %}
@@ -28,7 +28,7 @@ Cloud GPU VMs are available in preconfigured sizes. Select a template that fits 
 {% step %}
 #### Create a Cloud GPU VM
 
-Initiate a [<mark style="color:blue;">Cloud GPU VM creation request</mark>](create-cloud-gpu-vm.md) through API with the following:
+Initiate a [<mark style="color:blue;">Cloud GPU VM creation request</mark>](https://github.com/john-gitbook/template/blob/main/basics/create-cloud-gpu-vm.md) through API with the following:
 
 * The selected GPU template `UUID`
 * Linux-based operating system
@@ -38,7 +38,7 @@ Initiate a [<mark style="color:blue;">Cloud GPU VM creation request</mark>](crea
 {% endhint %}
 
 * Network settings
-* [<mark style="color:blue;">SSH keys</mark>](../security/ssh-key-manager/), [<mark style="color:blue;">Cloud-init</mark>](../how-tos/boot-cloud-init.md) script, or other authentication methods
+* [<mark style="color:blue;">SSH keys</mark>](https://github.com/john-gitbook/template/blob/main/security/ssh-key-manager/README.md), [<mark style="color:blue;">Cloud-init</mark>](https://github.com/john-gitbook/template/blob/main/how-tos/boot-cloud-init.md) script, or other authentication methods
 
 {% hint style="success" %}
 **Result:** The VM with the attached GPU is provisioned.
@@ -49,8 +49,8 @@ Initiate a [<mark style="color:blue;">Cloud GPU VM creation request</mark>](crea
 #### Access and setup
 
 * Connect to VM using one of the following options:
-  * [<mark style="color:blue;">Through the SSH</mark>](../how-tos/connect-vm-via-ssh.md).
-  * [<mark style="color:blue;">Through the remote console</mark>](../how-tos/connect-remote-console.md).
+  * [<mark style="color:blue;">Through the SSH</mark>](https://github.com/john-gitbook/template/blob/main/how-tos/connect-vm-via-ssh.md).
+  * [<mark style="color:blue;">Through the remote console</mark>](https://github.com/john-gitbook/template/blob/main/how-tos/connect-remote-console.md).
 * Install NVIDIA drivers. For more information, refer to the [<mark style="color:blue;">NVIDIA documentation</mark>](https://www.nvidia.com/en-us/drivers/).
 * Run the following command in your terminal or command prompt to verify if the Cloud GPU VM is accessible: `nvidia-smi`
 
@@ -92,17 +92,17 @@ pip install tensorflow
 #### Management
 
 * Start, restart, or delete the Cloud GPU VM as needed.
-* Monitor costs and usage. For more information, see [<mark style="color:blue;">Cost Alert</mark>](../management/usage/cost-alert.md) and [<mark style="color:blue;">Cost & Usage</mark>](../management/usage/cost-and-usage.md).
+* Monitor costs and usage. For more information, see [<mark style="color:blue;">Cost Alert</mark>](https://github.com/john-gitbook/template/blob/main/management/usage/cost-alert.md) and [<mark style="color:blue;">Cost & Usage</mark>](https://github.com/john-gitbook/template/blob/main/management/usage/cost-and-usage.md).
 {% endstep %}
 
 {% step %}
 #### Cleanup
 
-* Back up your results and data. For more information, see [<mark style="color:blue;">Install Acronis Backup Agent on Linux</mark>](../storage-&-backup/backup-service/how-tos/install-acronis-backup-agent.md).
-* [<mark style="color:blue;">Delete the Cloud GPU VM</mark>](delete-cloud-gpu-vm.md) from the VDC.
+* Back up your results and data. For more information, see [<mark style="color:blue;">Install Acronis Backup Agent on Linux</mark>](https://github.com/john-gitbook/template/blob/main/storage-&-backup/backup-service/how-tos/install-acronis-backup-agent.md).
+* [<mark style="color:blue;">Delete the Cloud GPU VM</mark>](https://github.com/john-gitbook/template/blob/main/basics/delete-cloud-gpu-vm.md) from the VDC.
 {% endstep %}
 {% endstepper %}
 
 ## Quick Links
 
-<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Retrieve Template list</strong></mark></td><td>Learn how to retrieve a list of available templates.</td><td><a href="retrieve-template-list.md">retrieve-template-list.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Retrieve Template details</strong></mark></td><td>Learn how to retrieve details of a specific template.</td><td><a href="retrieve-a-template.md">retrieve-a-template.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Create a Cloud GPU VM</strong></mark></td><td>Learn how to create a Cloud GPU VM.</td><td><a href="create-cloud-gpu-vm.md">create-cloud-gpu-vm.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Delete a Cloud GPU VM</strong></mark></td><td>Learn how to delete a Cloud GPU VM.</td><td><a href="delete-cloud-gpu-vm.md">delete-cloud-gpu-vm.md</a></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:blue;"><strong>Retrieve Template list</strong></mark></td><td>Learn how to retrieve a list of available templates.</td><td><a href="https://github.com/john-gitbook/template/blob/main/basics/retrieve-template-list.md">https://github.com/john-gitbook/template/blob/main/basics/retrieve-template-list.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Retrieve Template details</strong></mark></td><td>Learn how to retrieve details of a specific template.</td><td><a href="https://github.com/john-gitbook/template/blob/main/basics/retrieve-a-template.md">https://github.com/john-gitbook/template/blob/main/basics/retrieve-a-template.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Create a Cloud GPU VM</strong></mark></td><td>Learn how to create a Cloud GPU VM.</td><td><a href="https://github.com/john-gitbook/template/blob/main/basics/create-cloud-gpu-vm.md">https://github.com/john-gitbook/template/blob/main/basics/create-cloud-gpu-vm.md</a></td></tr><tr><td><mark style="color:blue;"><strong>Delete a Cloud GPU VM</strong></mark></td><td>Learn how to delete a Cloud GPU VM.</td><td><a href="https://github.com/john-gitbook/template/blob/main/basics/delete-cloud-gpu-vm.md">https://github.com/john-gitbook/template/blob/main/basics/delete-cloud-gpu-vm.md</a></td></tr></tbody></table>

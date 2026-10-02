@@ -9,9 +9,9 @@ Upon linking a user account from the organization to IAM Federation, users can l
 {% hint style="info" %}
 **Prerequisites:**
 
-* The onboarding of the organization IDP must be successfully completed using the discovery endpoint. For more information, see [<mark style="color:blue;">Configure IAM Federation</mark>](../how-tos/configure-iam-federation.md).
+* The onboarding of the organization IDP must be successfully completed using the discovery endpoint. For more information, see [<mark style="color:blue;">Configure IAM Federation</mark>](https://github.com/john-gitbook/template/blob/main/how-tos/configure-iam-federation.md).
 * The user must already have an IONOS Cloud account.
-* The logged-in user's email address and the [<mark style="color:blue;">domain linked to the IDP</mark>](../how-tos/configure-iam-federation.md#request-domain-ownership) must match.
+* The logged-in user's email address and the [<mark style="color:blue;">domain linked to the IDP</mark>](https://github.com/john-gitbook/template/blob/main/how-tos/configure-iam-federation.md#request-domain-ownership) must match.
 {% endhint %}
 
 To link a user's account from the organization to IONOS DCD, follow these steps:
@@ -20,7 +20,7 @@ To link a user's account from the organization to IONOS DCD, follow these steps:
 {% step %}
 #### Initiate Account Linking
 
-1\. Log in to the DCD using your IONOS Cloud account **Email** and **Password**. For more information, see [<mark style="color:blue;">Log in to the Data Center Designer</mark>](../get-started/log-in-dcd.md).
+1\. Log in to the DCD using your IONOS Cloud account **Email** and **Password**. For more information, see [<mark style="color:blue;">Log in to the Data Center Designer</mark>](https://github.com/john-gitbook/template/blob/main/get-started/log-in-dcd.md).
 
 2\. Go to **Menu** > **Management** > **IAM Federation**.
 {% endstep %}
