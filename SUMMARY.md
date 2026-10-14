@@ -1,34 +1,31 @@
 # Table of contents
 
-* [This is a private page](README.md)
+* [Quickstart](README.md)
+* [Page 2](page-2.md)
+* [Welcome](readme-1.md)
 
-## Group 1
+## Basics
 
-* [History of Apple](group-1/history-of-apple/README.md)
-  * [Version Control](group-1/history-of-apple/version-control.md)
-  * [Images & Media](group-1/history-of-apple/images-and-media.md)
-  * [Page 1](group-1/history-of-apple/page-1.md)
-  * [Editor](group-1/history-of-apple/editor.md)
-  * [Page 3](group-1/history-of-apple/page-3.md)
-  * [Welcome](group-1/history-of-apple/readme-1.md)
-  * [Quickstart](group-1/history-of-apple/readme-1-1.md)
-  * [august](group-1/history-of-apple/august-2024.md)
-  * [test-1](group-1/history-of-apple/manage-user-account-iam-federation.md)
-  * [Page 2](group-1/history-of-apple/page-2.md)
-  * [test-2](group-1/history-of-apple/basics.md)
-  * [Lists](group-1/history-of-apple/lists.md)
-  * [Hi](group-1/history-of-apple/hi.md)
-  * [Hello](group-1/history-of-apple/hello.md)
-  * [Hello World](group-1/history-of-apple/hello-world.md)
-  * [More Lists](group-1/history-of-apple/more-lists.md)
-  * [New List Items](group-1/history-of-apple/new-list-items.md)
-  * [This Is A List Item](group-1/history-of-apple/this-is-a-list-item.md)
-  * [Untitled](group-1/history-of-apple/untitled.md)
-  * [2025 11 03](group-1/history-of-apple/2025-11-03.md)
-  * [\[2025 11 04 (2)\](.gitbook/includes/2025-11-04 (2)](group-1/history-of-apple/2025-11-04-2-.gitbook-includes-2025-11-04-2.md)
-  * [\[Hello (1)\](.gitbook/includes/hello (1)](group-1/history-of-apple/hello-1-.gitbook-includes-hello-1.md)
-  * [\[Test Version History (1)\](.gitbook/includes/test-version-history (1)](group-1/history-of-apple/test-version-history-1-.gitbook-includes-test-version-history-1.md)
-  * [\[This Is A List Item (1)\](.gitbook/includes/this-is-a-list-item (1)](group-1/history-of-apple/this-is-a-list-item-1-.gitbook-includes-this-is-a-list-item-1.md)
-  * [History of Microsoft](group-1/history-of-apple/history-of-microsoft/README.md)
-    * [History of NVIDIA](group-1/history-of-apple/history-of-microsoft/history-of-nvidia.md)
-  * [History of Ford](group-1/history-of-apple/history-of-ford.md)
+* [Editor](basics/editor.md)
+* [Images & Media](basics/images-and-media.md)
+* [Version Control](basics/version-control.md)
+
+***
+
+* [Page 1](page-1.md)
+
+## Auto-added pages
+
+* [2025 11 03](auto-added-pages/2025-11-03.md)
+* [\[2025 11 04 (2)\](.gitbook/includes/2025-11-04 (2)](auto-added-pages/2025-11-04-2-.gitbook-includes-2025-11-04-2.md)
+* [\[Hello (1)\](.gitbook/includes/hello (1)](auto-added-pages/hello-1-.gitbook-includes-hello-1.md)
+* [Hello World](auto-added-pages/hello-world.md)
+* [Hello](auto-added-pages/hello.md)
+* [Hi](auto-added-pages/hi.md)
+* [Lists](auto-added-pages/lists.md)
+* [More Lists](auto-added-pages/more-lists.md)
+* [New List Items](auto-added-pages/new-list-items.md)
+* [\[Test Version History (1)\](.gitbook/includes/test-version-history (1)](auto-added-pages/test-version-history-1-.gitbook-includes-test-version-history-1.md)
+* [\[This Is A List Item (1)\](.gitbook/includes/this-is-a-list-item (1)](auto-added-pages/this-is-a-list-item-1-.gitbook-includes-this-is-a-list-item-1.md)
+* [This Is A List Item](auto-added-pages/this-is-a-list-item.md)
+* [Untitled](auto-added-pages/untitled.md)
